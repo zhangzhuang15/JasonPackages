@@ -1,0 +1,49 @@
+{
+  "name": "@jasonzhang/ts-project-template",
+  "version": "0.0.0",
+  "description": "JasonZhang's pure ts project template",
+  "keywords": [
+    "jasonzhang",
+    "template",
+    "ts"
+  ],
+  "author": "JasonZhang <2592004894@qq.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangzhuang15/JasonPackages.git"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm && git init",
+    "postinstall": "pnpm run update-hooks",
+    "fix-lint-bugs": "eslint --fix . --ext .js,.ts",
+    "lint-staged": "lint-staged",
+    "update-hooks": "simple-git-hooks"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm run lint-staged"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix --ext .js,.ts",
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.1.0",
+    "@typescript-eslint/parser": "^5.1.0",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.2.1",
+    "lint-staged": "^13.2.1",
+    "prettier": "^2.6.2",
+    "simple-git-hooks": "^2.8.1",
+    "typescript": "^4.4.4"
+  }
+}
