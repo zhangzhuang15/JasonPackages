@@ -1,8 +1,0 @@
-{
-  "name": "@jasonzhang/rain",
-  "version": "1.0.0",
-  "description": "a friendly http request client ",
-  "main": "index.js",
-  "author": "JasonZhang",
-  "license": "MIT"
-}

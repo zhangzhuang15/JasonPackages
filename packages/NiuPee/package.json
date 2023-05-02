@@ -1,0 +1,14 @@
+{
+  "name": "@jasonzhang/niupee",
+  "version": "1.0.0",
+  "description": "a friendly http request client ",
+  "main": "index.js",
+  "author": "JasonZhang",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/debug": "^4.1.7"
+  },
+  "dependencies": {
+    "debug": "^4.3.4"
+  }
+}

@@ -1,4 +1,4 @@
-interface RequestState {
+export interface RequestState {
   url: string;
   headers: Map<string, string>;
   data: Document | XMLHttpRequestBodyInit | null | undefined;
@@ -10,10 +10,10 @@ interface RequestState {
   uploadTracker?: (event: ProgressEvent) => void;
 }
 
-interface FetchState {
-  url: string;
-  method?: "GET" | "POST" | "OPTIONS" | "PUT" | "HEAD";
-  headers?: Map<string, string>;
+export interface FetchState {
+  url: RequestState["url"];
+  method?: RequestState["method"];
+  headers?: RequestState["headers"];
   body?: BodyInit | null | undefined;
   credentials?: "omit" | "include" | "same-origin";
   cache?:
@@ -22,7 +22,9 @@ interface FetchState {
     | "reload"
     | "no-cache"
     | "force-cache"
-    | "only-if-cached";
+    | "only-if-cached"
+    | "navigate"
+    | "websocket";
   mode?: "cors" | "no-cors" | "same-origin";
   redirect?: "follow" | "error" | "manual";
   referrerPolicy?:
@@ -33,25 +35,16 @@ interface FetchState {
     | "unsafe-url";
 }
 
-interface ResultDealer {
-  isJson?: Promise<Record<string, any>>;
-  isBuffer?: Promise<ArrayBuffer>;
-  isBlob?: Promise<Blob>;
-  isText?: Promise<string>;
-}
-
-interface Result {
-  sent: boolean;
-  reason_not_sent: any;
-  result: Promise<ResultDealer>;
+export interface Result<T = unknown> {
+  result: Promise<T>;
   cancelSwitch: (v: any) => void;
 }
 
-class BrowserRequestEngine {
+export class BrowserRequestEngine {
   /**
    * send a request by XMLHttpRequest API
    */
-  static fire_by_XHR(state: RequestState): Promise<Result> {
+  static fire_by_XHR(state: RequestState): Result {
     const { url, data, method, headers } = state;
 
     const request = new XMLHttpRequest();
@@ -66,12 +59,11 @@ class BrowserRequestEngine {
         request.setRequestHeader(key, value);
       });
     } catch (error) {
-      return Promise.resolve({
-        sent: false,
-        result: Promise.resolve({}),
-        reason_not_sent: error,
+      return {
+        // eslint-disable-next-line prefer-promise-reject-errors
+        result: Promise.reject({ type: "not-send", event: error }),
         cancelSwitch: () => {}
-      });
+      };
     }
 
     const switcher = { cancel: (v: unknown) => {} };
@@ -86,10 +78,10 @@ class BrowserRequestEngine {
     });
 
     const resultSwitcher = {
-      ok: (v: ResultDealer) => {},
+      ok: (v: unknown) => {},
       fail: (v: unknown) => {}
     };
-    const result = new Promise<ResultDealer>((resolve, reject) => {
+    const result = new Promise<unknown>((resolve, reject) => {
       resultSwitcher.ok = resolve;
       resultSwitcher.fail = reject;
     });
@@ -102,21 +94,7 @@ class BrowserRequestEngine {
 
     /** body data is completed */
     request.onload = () => {
-      switch (request.responseType) {
-        case "arraybuffer":
-          resultSwitcher.ok({ isBuffer: request.response });
-          break;
-        case "blob":
-          resultSwitcher.ok({ isBlob: request.response });
-          break;
-        case "json":
-          resultSwitcher.ok({ isJson: request.response });
-          break;
-        case "document":
-        case "text":
-        default:
-          resultSwitcher.ok({ isText: request.response });
-      }
+      resultSwitcher.ok(request);
     };
 
     request.onerror = event => {
@@ -136,25 +114,23 @@ class BrowserRequestEngine {
 
     request.send(data);
 
-    return Promise.resolve({
-      sent: true,
-      reason_not_sent: "",
+    return {
       result,
       cancelSwitch: switcher.cancel
-    });
+    };
   }
 
   /**
    * send a request by Fetch API
    */
-  static fire_by_Fetch(state: FetchState): Promise<Result> {
+  static fire_by_Fetch(state: FetchState): Result {
     const { url, body, method, headers } = state;
 
     const resultSwitcher = {
-      ok: (v: ResultDealer) => {},
+      ok: (v: unknown) => {},
       fail: (v: unknown) => {}
     };
-    const result = new Promise<ResultDealer>((resolve, reject) => {
+    const result = new Promise<unknown>((resolve, reject) => {
       resultSwitcher.ok = resolve;
       resultSwitcher.fail = reject;
     });
@@ -171,13 +147,17 @@ class BrowserRequestEngine {
       signal
     });
 
-    fetched.then(response => {}).catch(error => {});
+    fetched
+      .then(response => {
+        resultSwitcher.ok(response);
+      })
+      .catch(error => {
+        resultSwitcher.fail({ type: "fetch-error", event: error });
+      });
 
-    return Promise.resolve({
-      sent: true,
-      reason_not_sent: "",
+    return {
       result,
       cancelSwitch: cancel
-    });
+    };
   }
 }
