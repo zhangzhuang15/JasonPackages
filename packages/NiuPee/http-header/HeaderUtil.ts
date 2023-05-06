@@ -1,5 +1,5 @@
 import type { ResponseHeaderType } from "./ResponseHeader";
-import { RequestHeader, RequestHeaderType } from "./RequestHeader";
+import { RequestHeader } from "./RequestHeader";
 import { ResponseHeader } from "./ResponseHeader";
 
 /**

@@ -1,15 +1,20 @@
 import debug from "debug";
 import type { ResolvedResponse } from "./index";
 
-const debugging = debug("resolve-fetch-response-call");
+const debugging = debug("BrowserRequestFetchFireState");
 
 export async function resolveFetchResponse(
   response: Response
 ): Promise<ResolvedResponse> {
+  const headers: [string, string][] = [];
+  response.headers.forEach((value, key) => {
+    headers.push([key, value]);
+  });
+
   const result: ResolvedResponse = {
     status: response.status,
     statusDesc: response.statusText || "",
-    headers: new Map(response.headers.entries()),
+    headers: new Map(headers),
     data: {}
   };
 

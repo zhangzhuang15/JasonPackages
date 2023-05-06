@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>browser request test</title>
+  </head>
+  <body>
+    <button id="json">for json</button>
+    <button id="mp3">for mp3</button>
+    <button id="mp4">for mp4</button>
+    <button id="docx">for docx</button>
+    <button id="jpg">for jpg</button>
+    <script type="module" async>
+      import BrowserRequestManager from "http://hello.com:8888/target/esm/browser.js";
+      /* eslint-disable no-undef */
+
+      const port = 8888;
+      const hostname = "hello.com";
+
+      const mp3Button = document.getElementById("mp3");
+      const mp4Button = document.getElementById("mp4");
+      const jpgButton = document.getElementById("jpg");
+      const jsonButton = document.getElementById("json");
+      const docxButton = document.getElementById("docx");
+
+      mp3Button.addEventListener("click", () => {});
+
+      mp4Button.addEventListener("click", () => {});
+
+      jpgButton.addEventListener("click", () => {});
+
+      jsonButton.addEventListener("click", () => {
+        BrowserRequestManager.get(`http://${hostname}:${port}/json`)
+          .readyForHeaders()
+          .requestHeaders({
+            "Content-Type": "application/json"
+          })
+          .xhrFire(null)
+          .siu()
+          .then(response => response.result)
+          .then(response => response.data.isText)
+          .then(data => {
+            window.alert(`json data: ${data}`);
+          })
+          .catch(err => console.log("error: ", err));
+      });
+
+      docxButton.addEventListener("click", () => {});
+    </script>
+  </body>
+</html>

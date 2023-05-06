@@ -32,7 +32,10 @@ export interface FetchState {
     | "no-referrer-when-downgrade"
     | "origin"
     | "origin-when-cross-origin"
-    | "unsafe-url";
+    | "unsafe-url"
+    | "same-origin"
+    | "strict-origin"
+    | "strict-origin-when-cross-origin";
 }
 
 export interface Result<T = unknown> {

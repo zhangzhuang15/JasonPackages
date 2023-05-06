@@ -1,6 +1,5 @@
 /* eslint-disable max-classes-per-file */
 
-import debug from "debug";
 import { BrowserRequestHeaderCollectionEngine } from "../http-header-collection-engine/BrowserRequestHeaderCollectionEngine";
 import type {
   RequestState,
@@ -10,8 +9,7 @@ import type {
 import { BrowserRequestEngine } from "../http-request-engine/BrowserRequestEngine";
 import { resolveXHRResponse } from "../http-response-resolver/XHRResponseResolver";
 import { ResolvedResponse } from "../http-response-resolver";
-
-const fetchDebugging = debug("BrowserRequestFetchFireState");
+import { resolveFetchResponse } from "../http-response-resolver/FetchResponseResolver";
 
 class BrowserRequestXHRFireState {
   private credential: RequestState["credential"] = false;
@@ -106,6 +104,8 @@ class BrowserRequestFetchFireState {
   private cache: FetchState["cache"] = "default";
 
   private mode: FetchState["mode"] = "same-origin";
+
+  private referrerPolicy: FetchState["referrerPolicy"] = "no-referrer";
 
   private constructor(
     private method: FetchState["method"],
@@ -228,6 +228,123 @@ class BrowserRequestFetchFireState {
   }
 
   /** I don't know how to use "navigate" "websocket" mode, so I cannot provide api */
+
+  /** I don't know how to use "follow" "error" "manual" these redirect optional value, so I cannot provide api */
+
+  /**
+   * make a request without `Referer` Header
+   */
+  omitReferer() {
+    this.referrerPolicy = "no-referrer";
+    return this;
+  }
+
+  /**
+   * make a request with `Referer` Header which takes value from origin of current website page.
+   * e.g. if you make a request at `http://hello.com/pick`, the `Referer` will be `http://hello.com`
+   */
+  originReferer() {
+    this.referrerPolicy = "origin";
+    return this;
+  }
+
+  /**
+   * make a request with `Referer` Header which takes value from origin,path,query of current website page.
+   * e.g. if you make a request at `http://hello.com/pick?name=jack#page`, the `Referer` will be `http://hello.com/pick?name=jack`
+   *
+   * note that if you make a cross-origin request, `Referer` Header will be omitted!
+   */
+  sameOriginReferer() {
+    this.referrerPolicy = "same-origin";
+    return this;
+  }
+
+  /**
+   * only when you make a http\https request at http\https website, `Referer` Header will be sent,
+   * and its value is the origin of http\https website.
+   * e.g. you send a http request at `http://hello.com/pick?name=jack#page`, the `Referer` will be `http://hello.com`
+   */
+  strictOriginReferer() {
+    this.referrerPolicy = "strict-origin";
+    return this;
+  }
+
+  /**
+   * if you make a http\https request at http\https website, `Referer` Header will be the origin, path,query of the current
+   * website page.
+   * e.g. you send a http request at `http://hello.com/pick?name=jack#page`, the `Referer` will be `http://hello.com`
+   *
+   * if you make a http request at https website, `Referer` Header will be the origin of the current website page.
+   * e.g. you send a http request at `https://hello.com/pick?name=jack#page`, the `Referer` will be `https://hello.com`
+   */
+  originWhenCrossOriginReferer() {
+    this.referrerPolicy = "origin-when-cross-origin";
+    return this;
+  }
+
+  /**
+   * if you make a http\file request at https website, `Referer` Header will be omitted;
+   * if you make a http\https request at htt\https website, `Referer` Header will be the origin,
+   * path,query of the current website page.
+   * e.g. you send a http request at `http://hello.com/pick?name=jack#page`, the `Referer` Header will be `http://hello.com/pick?name=jack`
+   */
+  noRefererWhenDowngrade() {
+    this.referrerPolicy = "no-referrer-when-downgrade";
+    return this;
+  }
+
+  /**
+   * when you send a http request at https website, `Referer` Header will be omitted;
+   *
+   * otherwise:
+   * - when you send a same-origin request, `Referer` Header will be the origin,path,query of the current website page;
+   * - when you send a cross-origin request, `Referer` Header will be the origin of the current website page;
+   *
+   * e.g.
+   * if you send `http://hello.com/pick?age=4#page` at `http://hello.com/pick?name=jack`, the `Referer` Header
+   * will be `http://hello.com/pick?age=4`;
+   *
+   * e.g.
+   * if you send `http://matric.com/pick?age=10#page` at `http://hello.com/pick?name=jack`, the `Referer` Header
+   * will be `http://matric.com`
+   *
+   */
+  strictOriginWhenCrossOrigin() {
+    this.referrerPolicy = "strict-origin-when-cross-origin";
+    return this;
+  }
+
+  /** make the real request, "siu" is inspired by CR7(C Ronaldo) */
+  async siu(): Promise<Result<ResolvedResponse>> {
+    const {
+      url,
+      method,
+      mode,
+      cache,
+      referrerPolicy,
+      credentials,
+      headers,
+      data
+    } = this;
+
+    const state: FetchState = {
+      url,
+      method,
+      mode,
+      cache,
+      referrerPolicy,
+      credentials,
+      headers,
+      body: data
+    };
+
+    const { result, cancelSwitch } = BrowserRequestEngine.fire_by_Fetch(state);
+
+    return {
+      result: (result as Promise<Response>).then(r => resolveFetchResponse(r)),
+      cancelSwitch
+    };
+  }
 }
 
 class BrowserRequestHeadersState extends BrowserRequestHeaderCollectionEngine {
@@ -242,12 +359,18 @@ class BrowserRequestHeadersState extends BrowserRequestHeaderCollectionEngine {
     return new BrowserRequestHeadersState(method, url);
   }
 
+  /**
+   * be ready for sending a request driven by XMLHttpRequest API.
+   */
   xhrFire(data: RequestState["data"]) {
     const { method, url } = this;
     const headers = this.collect();
     return BrowserRequestXHRFireState.create(method, url, headers, data);
   }
 
+  /**
+   * be ready for sending a request driven by fetch API.
+   */
   fetchFire(data: FetchState["body"]) {
     const { method, url } = this;
     const headers = this.collect();

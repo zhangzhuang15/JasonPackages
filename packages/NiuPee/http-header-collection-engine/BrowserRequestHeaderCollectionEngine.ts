@@ -29,7 +29,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.acceptSuggest(Popular_MiMEType.pdf);
    * ```
    */
-  protected acceptSuggest(value: Popular_MIMEType) {
+  acceptSuggest(value: Popular_MIMEType) {
     this.requestHeaderState.set(RequestHeader.Accept, value);
     return this;
   }
@@ -44,7 +44,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.accept('text/html');
    * ```
    */
-  protected accept(value: string) {
+  accept(value: string) {
     this.requestHeaderState.set(RequestHeader.Accept, value);
     return this;
   }
@@ -61,7 +61,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.acceptLanguage('fr-CH');
    * ```
    */
-  protected acceptLanguage(value: string) {
+  acceptLanguage(value: string) {
     this.requestHeaderState.set(RequestHeader.Accept_Language, value);
     return this;
   }
@@ -72,7 +72,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * which value you can set, visit this [page](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization)
    * @param value
    */
-  protected authorization(value: string) {
+  authorization(value: string) {
     this.requestHeaderState.set(RequestHeader.Authorization, value);
     return this;
   }
@@ -89,7 +89,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.forwarded('for=192.0.0.4;proto=http;by=200.3.221.34');
    * ```
    */
-  protected forwarded(value: string) {
+  forwarded(value: string) {
     this.requestHeaderState.set(RequestHeader.Forwarded, value);
     return this;
   }
@@ -98,7 +98,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * set `If-Match` header value
    * @param etag `ETag` header value from response header
    */
-  protected ifMatch(etag: string) {
+  ifMatch(etag: string) {
     this.requestHeaderState.set(RequestHeader.If_Match, etag);
     return this;
   }
@@ -114,7 +114,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.ifModified('Tue, 20 Oct 2015 07:28:00 GMT');
    * ```
    */
-  protected ifModified(date: string) {
+  ifModified(date: string) {
     this.requestHeaderState.set(RequestHeader.If_Modified, date);
     return this;
   }
@@ -125,7 +125,7 @@ export class BrowserRequestHeaderCollectionEngine {
    *
    * TODO: waiting for improve
    */
-  protected ifNoneMatch(value: string) {
+  ifNoneMatch(value: string) {
     this.requestHeaderState.set(RequestHeader.If_None_Match, value);
     return this;
   }
@@ -141,7 +141,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.ifRange('"adfdafdfaf123", "32434fdagfdg"');
    * ```
    */
-  protected ifRange(value: string) {
+  ifRange(value: string) {
     this.requestHeaderState.set(RequestHeader.If_Range, value);
     return this;
   }
@@ -155,7 +155,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.ifUnmodifiedSince('Tue, 20 Oct 2015 07:28:00 GMT');
    * ```
    */
-  protected ifUnmodifiedSince(date: string) {
+  ifUnmodifiedSince(date: string) {
     this.requestHeaderState.set(RequestHeader.If_Unmodified_Since, date);
     return this;
   }
@@ -169,7 +169,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.maxForwards("10");
    * ```
    */
-  protected maxForwards(value: string) {
+  maxForwards(value: string) {
     this.requestHeaderState.set(RequestHeader.Max_Forwards, value);
     return this;
   }
@@ -184,7 +184,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.range('bytes=100-3000');
    * ```
    */
-  protected range(value: string) {
+  range(value: string) {
     this.requestHeaderState.set(RequestHeader.Range, value);
     return this;
   }
@@ -193,7 +193,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * set `User-Agent` header value
    * @param value
    */
-  protected userAgent(value: string) {
+  userAgent(value: string) {
     this.requestHeaderState.set(RequestHeader.User_Agent, value);
     return this;
   }
@@ -208,7 +208,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.cacheControlSuggest(Cache_Control_Suggest.max_age_400);
    * ```
    */
-  protected cacheControlSuggest(value: Cache_Control_Suggest) {
+  cacheControlSuggest(value: Cache_Control_Suggest) {
     this.requestHeaderState.set(RequestHeader.Cache_Control, value);
     return this;
   }
@@ -223,7 +223,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.cacheControl('no-cache');
    * ```
    */
-  protected cacheControl(value: string) {
+  cacheControl(value: string) {
     this.requestHeaderState.set(RequestHeader.Cache_Control, value);
     return this;
   }
@@ -237,7 +237,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.contentDispositionSuggest(Content_Disposition_Suggest.inline);
    * ```
    */
-  protected contentDispositionSuggest(value: Content_Disposition_Suggest) {
+  contentDispositionSuggest(value: Content_Disposition_Suggest) {
     this.requestHeaderState.set(RequestHeader.Content_Disposition, value);
     return this;
   }
@@ -251,7 +251,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.contentDisposition('form-data; name="Fruit"; filename="orange.jpeg"');
    * ```
    */
-  protected contentDisposition(value: string) {
+  contentDisposition(value: string) {
     this.requestHeaderState.set(RequestHeader.Content_Disposition, value);
     return this;
   }
@@ -265,7 +265,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.contentEncodingSuggest(Content_Encoding_Suggest.gzip);
    * ```
    */
-  protected contentEncodingSuggest(value: Content_Encoding_Suggest) {
+  contentEncodingSuggest(value: Content_Encoding_Suggest) {
     this.requestHeaderState.set(RequestHeader.Content_Encoding, value);
     return this;
   }
@@ -280,7 +280,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.contentEncoding("br,gzip");
    * ```
    */
-  protected contentEncoding(value: string) {
+  contentEncoding(value: string) {
     this.requestHeaderState.set(RequestHeader.Content_Encoding, value);
     return this;
   }
@@ -294,7 +294,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.contentLanguage("en-US");
    * ```
    */
-  protected contentLanguage(value: string) {
+  contentLanguage(value: string) {
     this.requestHeaderState.set(RequestHeader.Content_Language, value);
     return this;
   }
@@ -309,7 +309,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.contentLocation("/images/hi.png");
    * ```
    */
-  protected contentLocation(value: string) {
+  contentLocation(value: string) {
     this.requestHeaderState.set(RequestHeader.Content_Location, value);
     return this;
   }
@@ -323,7 +323,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.contentTypeSuggest(Popular_MIMEType.ppt);
    * ```
    */
-  protected contentTypeSuggest(value: Popular_MIMEType) {
+  contentTypeSuggest(value: Popular_MIMEType) {
     this.requestHeaderState.set(RequestHeader.Content_Type, value);
     return this;
   }
@@ -337,7 +337,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.contentType("text/html; charset=utf-8");
    * ```
    */
-  protected contentType(value: string) {
+  contentType(value: string) {
     this.requestHeaderState.set(RequestHeader.Content_Type, value);
     return this;
   }
@@ -353,7 +353,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * engine.lastModified("Wed, 21 Oct 2015 07:28:00 GMT");
    * ```
    */
-  protected lastModified(date: string) {
+  lastModified(date: string) {
     this.requestHeaderState.set(RequestHeader.Last_Modified, date);
     return this;
   }
@@ -370,7 +370,7 @@ export class BrowserRequestHeaderCollectionEngine {
    * });
    * ```
    */
-  protected requestHeaders(headers: Record<string, string>) {
+  requestHeaders(headers: Record<string, string>) {
     Object.keys(headers).forEach(key => {
       this.requestHeaderState.set(key, headers[key]);
     });
@@ -380,15 +380,15 @@ export class BrowserRequestHeaderCollectionEngine {
   /**
    * get the final collection of request header
    */
-  protected collect(): Map<string, string> {
-    return JSON.parse(JSON.stringify(this.requestHeaderState));
+  collect(): Map<string, string> {
+    return this.requestHeaderState;
   }
 
   /**
    * deep clone for this class
    */
-  private clone() {
-    const state = JSON.parse(JSON.stringify(this.requestHeaderState));
-    return new BrowserRequestHeaderCollectionEngine(state);
-  }
+  // private clone() {
+  //   const state = JSON.parse(JSON.stringify(this.requestHeaderState));
+  //   return new BrowserRequestHeaderCollectionEngine(state);
+  // }
 }
