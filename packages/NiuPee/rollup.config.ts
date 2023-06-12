@@ -89,6 +89,7 @@ export default (commandLineArgs: any) => {
       break;
     case "development":
       configs = developmentRollupConfig();
+      log("running in development mode");
       break;
 
     default:

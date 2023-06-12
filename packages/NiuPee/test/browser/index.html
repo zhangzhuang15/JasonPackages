@@ -25,12 +25,70 @@
       const jsonButton = document.getElementById("json");
       const docxButton = document.getElementById("docx");
 
-      mp3Button.addEventListener("click", () => {});
+      // `fetch` case
+      mp3Button.addEventListener("click", () => {
+        BrowserRequestManager.get("http://hello.com:8888/mp3")
+          .readyForHeaders()
+          .contentType("audio/mpeg")
+          .fetchFire(null)
+          .expectRaw()
+          .withoutCookie()
+          .siu()
+          .then(response => response.result)
+          .then(result => {
+            const { headers, data } = result;
+
+            console.log("log headers: ");
+            headers.forEach((value, header) => {
+              console.log(`${header}: ${value}`);
+            });
+
+            console.log();
+            console.log("write mp3 file");
+
+            // data is so large, just take a 2MB slice
+            const url = URL.createObjectURL(
+              new Blob([data.slice(0, 2 * 1024 * 1024)], { type: "audio/mpeg" })
+            );
+            const audio = new Audio(url);
+            audio.volume = 0.6;
+            audio.controls = true;
+            audio.preload = "auto";
+            document.body.appendChild(audio);
+
+            audio.addEventListener("canplaythrough", () => {
+              const duration = audio.duration;
+              console.log(`music will play ${duration} seconds`);
+              console.log("start to play music");
+              audio.play();
+
+              console.log(
+                "after about 20 seconds, transfer the music the time point remaining about 20 seconds"
+              );
+              setTimeout(() => {
+                const readyState = audio.readyState;
+                if (readyState === 4) {
+                  audio.pause();
+                  // TODO: if set duration - 10, the audio player of Safari will
+                  // come to the end at once, I don't know why.
+                  audio.currentTime = duration - 20;
+                  audio.play();
+                }
+                console.log("readyState: ", readyState);
+              }, 20 * 1000);
+            });
+
+            audio.addEventListener("ended", () =>
+              document.body.removeChild(audio)
+            );
+          });
+      });
 
       mp4Button.addEventListener("click", () => {});
 
       jpgButton.addEventListener("click", () => {});
 
+      // `xhr` case
       jsonButton.addEventListener("click", () => {
         BrowserRequestManager.get(`http://${hostname}:${port}/json`)
           .readyForHeaders()
@@ -38,11 +96,16 @@
             "Content-Type": "application/json"
           })
           .xhrFire(null)
+          .expectJson()
           .siu()
           .then(response => response.result)
-          .then(response => response.data.isText)
-          .then(data => {
-            window.alert(`json data: ${data}`);
+          .then(({ data, headers }) => {
+            window.alert(`json data: ${JSON.stringify(data)}`);
+            let l_headers = {};
+            for (let [header, value] of headers.entries()) {
+              l_headers[header] = value;
+            }
+            window.alert(`response headers: ${JSON.stringify(l_headers)}`);
           })
           .catch(err => console.log("error: ", err));
       });

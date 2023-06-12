@@ -3,6 +3,7 @@ export interface RequestState {
   headers: Map<string, string>;
   data: Document | XMLHttpRequestBodyInit | null | undefined;
   method: "GET" | "POST" | "OPTIONS" | "PUT" | "HEAD";
+  responseType: XMLHttpRequest["responseType"];
   /** ms */
   timeout?: number;
   credential?: boolean;
@@ -12,6 +13,7 @@ export interface RequestState {
 
 export interface FetchState {
   url: RequestState["url"];
+  responseType: "string" | "blob" | "json" | "arraybuffer";
   method?: RequestState["method"];
   headers?: RequestState["headers"];
   body?: BodyInit | null | undefined;
@@ -46,6 +48,8 @@ export interface Result<T = unknown> {
 export class BrowserRequestEngine {
   /**
    * send a request by XMLHttpRequest API
+   *
+   * after some research, XMLHttpRequest supports http2 without need to set "HTTP2-Settings"
    */
   static fire_by_XHR(state: RequestState): Result {
     const { url, data, method, headers } = state;
@@ -115,6 +119,8 @@ export class BrowserRequestEngine {
     /* whether to take with cookie */
     request.withCredentials = state.credential ?? false;
 
+    request.responseType = state.responseType;
+
     request.send(data);
 
     return {
@@ -125,6 +131,8 @@ export class BrowserRequestEngine {
 
   /**
    * send a request by Fetch API
+   *
+   * after some research, Fetch supports http2 without need to set "HTTP2-Settings"
    */
   static fire_by_Fetch(state: FetchState): Result {
     const { url, body, method, headers } = state;
@@ -152,10 +160,16 @@ export class BrowserRequestEngine {
 
     fetched
       .then(response => {
-        resultSwitcher.ok(response);
+        if (response.ok) {
+          resultSwitcher.ok(response);
+        } else {
+          // response status is not in [200, 300)
+          resultSwitcher.fail({ type: "fetch-http-error", event: response });
+        }
       })
       .catch(error => {
-        resultSwitcher.fail({ type: "fetch-error", event: error });
+        // fetch only reject when network error is encountered
+        resultSwitcher.fail({ type: "fetch-network-error", event: error });
       });
 
     return {

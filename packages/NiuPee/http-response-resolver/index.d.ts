@@ -6,9 +6,9 @@ export interface ResolvedResponseData {
   isError?: Promise<any>;
 }
 
-export interface ResolvedResponse {
+export interface ResolvedResponse<T = any> {
   status: number;
   statusDesc?: string;
   headers: Map<string, string>;
-  data: ResolvedResponseData;
+  data: T;
 }

@@ -89,6 +89,14 @@ export class RequestHeader extends CommonHeader {
   static readonly Forwarded = "Forwarded" as const;
 
   /**
+   * contains the ips between client and any other proxy.
+   *
+   * @example
+   * `X-Forwarded-For: 125.3.3.1, 200.21.44.78, 200.34.77.55`
+   */
+  static readonly X_Forwarded_For = "X-Forwarded-For" as const;
+
+  /**
    * specifies the host and port number of the server to which the request is being sent
    *
    * @example

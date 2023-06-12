@@ -25,6 +25,7 @@ export const enum Popular_MIMEType {
   /** music */
   wav = "audio/wav",
   ogg = "audio/ogg",
+  mp3 = "audio/mpeg",
 
   /** video */
   mp4 = "video/mp4",

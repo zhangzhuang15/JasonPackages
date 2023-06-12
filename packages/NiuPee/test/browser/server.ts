@@ -1,6 +1,9 @@
 import { createServer } from "http";
+import { connect } from "http2";
 import { log } from "console";
 import { readFile } from "fs";
+
+// run this file: NODE_OPTIONS="--loader ts-node/esm" ts-node server.ts
 
 function startServer() {
   // http://[hostname]:[port][pathname]?[query]#[hash]
@@ -32,7 +35,7 @@ function startServer() {
       });
     };
 
-    const contentType = req.headers["content-type"];
+    const contentType = req.headers["content-type"] || "";
     log("req: ", req.headers);
     log("contentType: ", contentType);
     const { url } = req;
@@ -61,7 +64,7 @@ function startServer() {
     }
 
     // for-mp3 request
-    if (contentType.indexOf("mp3") > -1) {
+    if (contentType.indexOf("mpeg") > -1) {
       writeBackFile("./static/example.mp3");
       return;
     }

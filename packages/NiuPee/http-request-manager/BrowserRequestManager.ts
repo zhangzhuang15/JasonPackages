@@ -7,15 +7,44 @@ import type {
   Result
 } from "../http-request-engine/BrowserRequestEngine";
 import { BrowserRequestEngine } from "../http-request-engine/BrowserRequestEngine";
-import { resolveXHRResponse } from "../http-response-resolver/XHRResponseResolver";
+import {
+  resolveXHRError,
+  resolveXHRResponse
+} from "../http-response-resolver/XHRResponseResolver";
 import { ResolvedResponse } from "../http-response-resolver";
-import { resolveFetchResponse } from "../http-response-resolver/FetchResponseResolver";
+import {
+  resolveFetchError,
+  resolveFetchResponse
+} from "../http-response-resolver/FetchResponseResolver";
+
+// in this part, we use state mode to clarify every step in a request.
+//
+// BrowserRequestUrlState only allows you to change the query;
+//
+// BrowserRequestHeadersState only allows you to change the headers and body data;
+//
+// BrowserRequestXHRFireState will dispatch the request by XMLHttpRequest API and
+// return the response to you;
+//
+// BrowserRequestFetchFireState will dispatch the request by fetch API and return
+// then response to you;
 
 class BrowserRequestXHRFireState {
   private credential: RequestState["credential"] = false;
 
   /** ms */
   private timeout: RequestState["timeout"] = 0;
+
+  /**
+   * we request users to make sure which format of response they expect.
+   * we don't analysis the format from the header field  such as "Content-Type",
+   * the reason is easy:
+   * for people who use connect, a third-party package, which takes "Content-Type: application/connect+json",
+   * but the response is raw binary format.
+   *
+   * default: response is string format.
+   */
+  private responseType: RequestState["responseType"] = "";
 
   private downloadTracker: RequestState["downloadTracker"];
 
@@ -62,8 +91,48 @@ class BrowserRequestXHRFireState {
     return this;
   }
 
+  /**
+   * expect response as json format
+   */
+  expectJson() {
+    this.responseType = "json";
+    return this;
+  }
+
+  /**
+   * expect response as raw binary format
+   */
+  expectRaw() {
+    this.responseType = "arraybuffer";
+    return this;
+  }
+
+  /**
+   * expect response as blob format
+   */
+  expectBlob() {
+    this.responseType = "blob";
+    return this;
+  }
+
+  /**
+   * expect response as text format
+   */
+  expectText() {
+    this.responseType = "text";
+    return this;
+  }
+
+  /**
+   * expect response as document format
+   */
+  expectDocument() {
+    this.responseType = "document";
+    return this;
+  }
+
   /** make the real request, "siu" is inspired by CR7(C Ronaldo) */
-  async siu(): Promise<Result<ResolvedResponse>> {
+  async siu(): Promise<Result<ResolvedResponse<XMLHttpRequest["response"]>>> {
     const {
       method,
       url,
@@ -71,6 +140,7 @@ class BrowserRequestXHRFireState {
       data,
       timeout,
       credential,
+      responseType,
       downloadTracker,
       uploadTracker
     } = this;
@@ -82,6 +152,7 @@ class BrowserRequestXHRFireState {
       data,
       timeout,
       credential,
+      responseType,
       downloadTracker,
       uploadTracker
     };
@@ -90,9 +161,15 @@ class BrowserRequestXHRFireState {
       BrowserRequestEngine.fire_by_XHR(state);
 
     return {
-      result: (resultPromise as Promise<XMLHttpRequest>).then(r =>
-        resolveXHRResponse(r)
-      ),
+      result: (resultPromise as Promise<XMLHttpRequest>)
+        .then(r => resolveXHRResponse(r))
+        .catch(error => {
+          // this is internal development error resolve
+          resolveXHRError(error);
+
+          // external user error resolve
+          return Promise.reject(error);
+        }),
       cancelSwitch
     };
   }
@@ -106,6 +183,8 @@ class BrowserRequestFetchFireState {
   private mode: FetchState["mode"] = "same-origin";
 
   private referrerPolicy: FetchState["referrerPolicy"] = "no-referrer";
+
+  private responseType: FetchState["responseType"] = "string";
 
   private constructor(
     private method: FetchState["method"],
@@ -314,6 +393,39 @@ class BrowserRequestFetchFireState {
     return this;
   }
 
+  /**
+   * expect response in json format
+   */
+  expectJson() {
+    this.responseType = "json";
+    return this;
+  }
+
+  /**
+   * expect response in blob format
+   * @returns
+   */
+  expectBlob() {
+    this.responseType = "blob";
+    return this;
+  }
+
+  /**
+   * expect response in text format
+   */
+  expectText() {
+    this.responseType = "string";
+    return this;
+  }
+
+  /**
+   * expect response in raw binary format
+   */
+  expectRaw() {
+    this.responseType = "arraybuffer";
+    return this;
+  }
+
   /** make the real request, "siu" is inspired by CR7(C Ronaldo) */
   async siu(): Promise<Result<ResolvedResponse>> {
     const {
@@ -324,6 +436,7 @@ class BrowserRequestFetchFireState {
       referrerPolicy,
       credentials,
       headers,
+      responseType,
       data
     } = this;
 
@@ -335,13 +448,19 @@ class BrowserRequestFetchFireState {
       referrerPolicy,
       credentials,
       headers,
+      responseType,
       body: data
     };
 
     const { result, cancelSwitch } = BrowserRequestEngine.fire_by_Fetch(state);
 
     return {
-      result: (result as Promise<Response>).then(r => resolveFetchResponse(r)),
+      result: (result as Promise<Response>)
+        .then(r => resolveFetchResponse(r, responseType))
+        .catch(error => {
+          resolveFetchError(error);
+          return Promise.reject(error);
+        }),
       cancelSwitch
     };
   }
@@ -361,6 +480,7 @@ class BrowserRequestHeadersState extends BrowserRequestHeaderCollectionEngine {
 
   /**
    * be ready for sending a request driven by XMLHttpRequest API.
+   * @param data the body data in your http request.
    */
   xhrFire(data: RequestState["data"]) {
     const { method, url } = this;

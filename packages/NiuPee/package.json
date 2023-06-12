@@ -15,10 +15,17 @@
   },
   "exports": {
     ".": {
-      "import": "./target/browser.js"
+      "node": {
+        "require": "./target/node_cmj.js",
+        "import": "./target/node_module.js",
+        "types": "./types/node.d.ts"
+      },
+      "default": {
+        "import": "./target/browser.js",
+        "types": "./types/browser.d.ts"
+      }
     }
   },
-  "types": "./types/browser.d.ts",
   "files": [
     "target",
     "types"

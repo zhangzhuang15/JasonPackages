@@ -4,7 +4,9 @@ import type { ResolvedResponse } from "./index";
  * deal with the XHR response here, and return a resolved value;
  * remember that we assume the http response comes back successfully;
  * */
-export function resolveXHRResponse(request: XMLHttpRequest): ResolvedResponse {
+export function resolveXHRResponse(
+  request: XMLHttpRequest
+): ResolvedResponse<XMLHttpRequest["response"]> {
   const headers: [string, string][] = request
     .getAllResponseHeaders()
     .trim()
@@ -15,37 +17,37 @@ export function resolveXHRResponse(request: XMLHttpRequest): ResolvedResponse {
       return [header, value];
     });
 
-  const result: ResolvedResponse = {
+  const result: ResolvedResponse<XMLHttpRequest["response"]> = {
     status: request.status,
     statusDesc: request.statusText || "",
     headers: new Map(headers),
-    data: {}
+    data: request.response
   };
 
-  switch (request.responseType) {
-    case "arraybuffer":
-      result.data = {
-        isBuffer: Promise.resolve(request.response)
-      };
-      break;
-    case "blob":
-      result.data = {
-        isBlob: Promise.resolve(request.response)
-      };
-      break;
-    case "json":
-      result.data = {
-        isJson: Promise.resolve(request.response)
-      };
-      break;
-    // TODO: I don't make sure if "document" could be treated as same as "text"
-    case "document":
-    case "text":
-    default:
-      result.data = {
-        isText: Promise.resolve(request.response)
-      };
-  }
+  // switch (request.responseType) {
+  //   case "arraybuffer":
+  //     result.data = {
+  //       isBuffer: Promise.resolve(request.response)
+  //     };
+  //     break;
+  //   case "blob":
+  //     result.data = {
+  //       isBlob: Promise.resolve(request.response)
+  //     };
+  //     break;
+  //   case "json":
+  //     result.data = {
+  //       isJson: Promise.resolve(request.response)
+  //     };
+  //     break;
+  //   // TODO: I don't make sure if "document" could be treated as same as "text"
+  //   case "document":
+  //   case "text":
+  //   default:
+  //     result.data = {
+  //       isText: Promise.resolve(request.response)
+  //     };
+  // }
 
   return result;
 }
