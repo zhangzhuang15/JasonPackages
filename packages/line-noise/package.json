@@ -1,0 +1,43 @@
+{
+  "name": "@jasonzhang/line-noise",
+  "version": "0.1.0",
+  "description": "js addon based on c library linenoise used in redis",
+  "author": "JasonZhang",
+  "license": "MIT",
+  "main": "./lib/index.cjs",
+  "types": "./types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "node": "./lib/index.mjs"
+      },
+      "require": {
+        "node": "./lib/index.cjs"
+      }
+    }
+  },
+  "engines": {
+    "node": ">= v16.15.0"
+  },
+  "packageManager": "npm@8.5.5",
+  "dependencies": {
+    "neon-cli": "^0.10.1"
+  },
+  "peerDependencies": {
+    "@types/node": "^18.16.3"
+  },
+  "scripts": {
+    "install": "neon build --release && cd native && cargo clean"
+  },
+  "files": [
+    "lib/*",
+    "native/linenoise",
+    "native/Cargo.toml",
+    "native/build.rs",
+    "native/src/*",
+    "native/linenoise",
+    "types/*",
+    "example/*.{config.json,cjs,mjs}",
+    "example/package.json"
+  ]
+}

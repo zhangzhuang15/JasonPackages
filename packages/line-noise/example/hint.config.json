@@ -1,0 +1,20 @@
+[
+  {
+    "pattern": "go",
+    "color": 35,
+    "bold": 0,
+    "hint": " fmt|run|compile|install|get|test|help"
+  },
+  {
+    "pattern": "go get",
+    "color": 32,
+    "bold": 0,
+    "hint": " <package-repo-path>"
+  },
+  {
+    "pattern": "go test",
+    "color": 30,
+    "bold": 0,
+    "hint": " <directory>|<package-name>"
+  }
+]

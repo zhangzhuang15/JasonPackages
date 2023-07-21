@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "esbuild": "^0.18.15",
+    "@jasonzhang/line-noise": "file:../"
+  }
+}

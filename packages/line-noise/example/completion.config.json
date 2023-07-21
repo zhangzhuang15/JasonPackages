@@ -1,0 +1,10 @@
+[
+  {
+    "pattern": "h",
+    "tips": ["help", "hello"]
+  },
+  {
+    "pattern": "q",
+    "tips": ["quit"]
+  }
+]

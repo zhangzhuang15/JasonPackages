@@ -1,0 +1,27 @@
+[package]
+name = "line-noise"
+version = "0.1.0"
+authors = ["zhangzhuang15 <2592004894@qq.com>"]
+license = "MIT"
+build = "build.rs"
+edition = "2018"
+exclude = ["artifacts.json", "index.node"]
+
+[lib]
+name = "line_noise"
+crate-type = ["cdylib"]
+
+[build-dependencies]
+cc = "1.0.79"
+neon-build = "0.10.1"
+
+[dependencies]
+cc = "1.0.79"
+lazy_static = "1.4.0"
+libc = "0.2.147"
+neon = "0.10.1"
+serde = { version = "1.0.171", features = ["derive"] }
+serde_json = "1.0.103"
+
+# [build]
+# rustflags = ["-L", "native=./linenoise", "-l", "static=linenoise"]
