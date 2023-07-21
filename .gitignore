@@ -1,2 +1,4 @@
 node_modules
 **/*/target
+**/*/NiuPee/test/**/*.mp[34]
+lerna-debug.log
