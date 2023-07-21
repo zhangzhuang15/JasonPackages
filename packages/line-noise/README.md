@@ -22,15 +22,15 @@ this is a nodejs addon based on c library linenoise which is used in Redis.
 
 1. make sure that you have Rust environment, otherwise, please visit Rust official website and install.it's not difficult at all.
 
-2. run `npm install @jasonzhang/line-noise`
+2. run `npm install @jasonzhang15/line-noise`
 
 # usage
 
 ```js
-const lineNoise = require("@jasonzhang/line-noise");
+const lineNoise = require("@jasonzhang15/line-noise");
 
 // ESModule:
-// import lineNoise from "@jasonzhang/line-noise";
+// import lineNoise from "@jasonzhang15/line-noise";
 
 const argv = process.argv.slice(2);
 

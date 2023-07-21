@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-console */
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const addon = require("@jasonzhang/line-noise");
+const addon = require("@jasonzhang15/line-noise");
 
 const argv = process.argv.slice(2);
 
