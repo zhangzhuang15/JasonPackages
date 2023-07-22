@@ -14,9 +14,18 @@ this is a nodejs addon based on c library linenoise which is used in Redis.
 
 ## quick look
 
+MP4:
 <video controls preload="none">
+
   <source src="./line-noise-demo.mp4" type="video/mp4"></source>
+  if quick look video cannot load, please give a look at .gif image below.
 </video>
+
+<br>
+<br>
+
+GIF:
+![line-noise demo](./line-noise-demo.gif)
 
 # install
 
