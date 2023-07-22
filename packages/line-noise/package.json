@@ -27,7 +27,9 @@
     "@types/node": "^18.16.3"
   },
   "scripts": {
-    "install": "neon build --release && cd native && cargo clean"
+    "install": "neon build --release && cd native && cargo clean",
+    "publish-preview": "npm publish --dry-run",
+    "publish": "npm publish --access public"
   },
   "files": [
     "lib/*",
@@ -38,6 +40,7 @@
     "native/linenoise",
     "types/*",
     "example/*.{config.json,cjs,mjs}",
-    "example/package.json"
+    "example/package.json",
+    "line-noise-demo.{gif,mp4}"
   ]
 }
