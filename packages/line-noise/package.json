@@ -1,6 +1,6 @@
 {
   "name": "@jasonzhang15/line-noise",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "js addon based on c library linenoise used in redis",
   "author": "JasonZhang",
   "license": "MIT",
