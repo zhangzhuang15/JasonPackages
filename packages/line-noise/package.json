@@ -4,6 +4,24 @@
   "description": "js addon based on c library linenoise used in redis",
   "author": "JasonZhang",
   "license": "MIT",
+  "keywords": [
+    "linenoise",
+    "nodejs addon",
+    "c library",
+    "readline",
+    "terminal",
+    "command line",
+    "rust",
+    "neon",
+    "redis"
+  ],
+  "repository": {
+    "url": "https://github.com/zhangzhuang15/JasonPackages/tree/dev/packages/line-noise",
+    "type": "github"
+  },
+  "bugs": {
+    "url": "https://github.com/zhangzhuang15/JasonPackages/issues"
+  },
   "main": "./lib/index.cjs",
   "types": "./types/index.d.ts",
   "exports": {
