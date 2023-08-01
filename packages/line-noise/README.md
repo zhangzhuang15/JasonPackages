@@ -7,7 +7,7 @@ this is a nodejs addon based on c library linenoise which is used in Redis.
 - input hint
 - input completion when press Tab key
 - multiline edit in your terminal
-- like `realine`
+- like `readline`
 - support both .cjs and .mjs on Node environment
 - support typescript
 - not support windows; macOS or linux is ok
