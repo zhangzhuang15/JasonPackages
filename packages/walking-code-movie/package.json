@@ -1,0 +1,38 @@
+{
+  "name": "@jasonzhang15/walking-code-movie",
+  "version": "0.0.1",
+  "description": "display your code like a movie",
+  "keywords": [
+    "code",
+    "animation",
+    "movie",
+    "mp4",
+    "gif",
+    "display",
+    "demo"
+  ],
+  "author": "zhangzhuang15 <2592004894@qq.com>",
+  "homepage": "https://github.com/zhangzhuang15/JasonPackages#readme",
+  "license": "MIT",
+  "main": "lib/index.cjs",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangzhuang15/JasonPackages.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/walking-code-movie.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/zhangzhuang15/JasonPackages/issues"
+  }
+}

@@ -36,3 +36,14 @@ To start a mono-repo project with `lerna` + `pnpm`:
     > when use pnpm and lerna together, lerna will
     > block `link` `add` `bootstrap` command, so
     > you cannot install dependencies with lerna
+
+## lerna command conclusion
+
+### lerna create
+
+if you want to create a new package whose name is `@jasonzhang15/A` under "packages" directory, please run:
+`lerna create A`
+
+then, follow the hints of lerna, modify the package name to `@jasonzhang15/A`.
+
+finally, a directory `packages/A` will be created, and the name of package in this directory is `@jasonzhang15/A`
