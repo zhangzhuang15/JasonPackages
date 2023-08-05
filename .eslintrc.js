@@ -17,6 +17,7 @@ module.exports = {
   plugins: ["@typescript-eslint"],
   rules: {
     "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
     "@typescript-eslint/naming-convention": [
       "error",
       { "selector": "variableLike",
