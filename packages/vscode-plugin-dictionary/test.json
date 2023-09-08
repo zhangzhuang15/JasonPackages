@@ -1,0 +1,914 @@
+{
+  "props": {
+    "pageProps": {
+      "query": { "w": "banana" },
+      "initialReduxState": {
+        "user": { "isLogin": false, "userInfo": {} },
+        "store": { "prevPath": {} },
+        "word": {
+          "wordInfo": {
+            "phrase": [
+              {
+                "cizu_name": "go (或 be) bananas",
+                "jx": [
+                  {
+                    "jx_en_mean": "(informal,)become (or be) mad or extremely silly",
+                    "jx_cn_mean": "(非正式)发疯",
+                    "lj": [
+                      {
+                        "lj_ly": "everyone's beginning to think I'm bananas.",
+                        "lj_ls": "每个人都认为我疯了。"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "cizu_name": "top (或 second) banana",
+                "jx": [
+                  {
+                    "jx_en_mean": "(informal chiefly N. Amer.)the most (or second most) important person in an organization or activity",
+                    "jx_cn_mean": "(非正式，主 北美)（机构或活动中的）头号（或二号）人物",
+                    "lj": []
+                  }
+                ]
+              }
+            ],
+            "collins": [
+              {
+                "entry": [
+                  {
+                    "def": "\u003cb\u003eBananas\u003c/b\u003e are long curved fruit with yellow skins.",
+                    "tran": "香蕉",
+                    "posp": "N-VAR",
+                    "example": [
+                      {
+                        "ex": "...a bunch of bananas.",
+                        "tran": "一串香蕉",
+                        "tts_mp3": "http://res-tts.iciba.com/tts_dj/5/b/0/5b078f81e59ad5852fa058436b5105a2.mp3",
+                        "tts_size": "7K"
+                      }
+                    ]
+                  },
+                  {
+                    "def": "If someone is behaving in a silly or crazy way, or if they become extremely angry, you can say that they are going \u003cb\u003ebananas\u003c/b\u003e .",
+                    "tran": "愚蠢的；发狂的；疯狂的",
+                    "posp": "ADJ",
+                    "example": [
+                      {
+                        "ex": "People went bananas with boredom...",
+                        "tran": "人们闷得发狂。",
+                        "tts_mp3": "http://res-tts.iciba.com/tts_dj/a/9/f/a9fc69d66cac46356899df7ec3308f9c.mp3",
+                        "tts_size": "10K"
+                      },
+                      {
+                        "ex": "Adamson's going to go bananas on this one.",
+                        "tran": "亚当森会被这个气疯的。",
+                        "tts_mp3": "http://res-tts.iciba.com/tts_dj/1/2/2/122d62b580a9a5e88fa6b9e269152ce4.mp3",
+                        "tts_size": "13K"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "cetSix": [
+              {
+                "word": "banana",
+                "count": 4,
+                "kd": [],
+                "Sentence": [
+                  {
+                    "sentence": "You know I've often wondered why people laugh at the picture of a big belly businessman slipping on a banana skin and falling on his bottom.",
+                    "come": "出自-2011年6月听力原文"
+                  },
+                  {
+                    "sentence": "I remember in Japan, people heading directly to the fruit section in the supermarket, when the banana diet was at its peak.",
+                    "come": "2019年6月六级真题（第一套）听力 Section C"
+                  },
+                  {
+                    "sentence": "In one experiment, they showed pictures of various objects to twenty volunteers and asked them to find just one of those, a banana.",
+                    "come": "2017年6月六级真题（第二套）阅读 Section A"
+                  },
+                  {
+                    "sentence": "Those who talked to themselves found the banana slightly faster than those who didn't, the researchers say.",
+                    "come": "2017年6月六级真题（第二套）阅读 Section A"
+                  }
+                ]
+              }
+            ],
+            "err_words": [
+              {
+                "word_name": "Banana",
+                "means": ["[地名] [澳大利亚、刚果民主共和国] 巴纳纳"]
+              }
+            ],
+            "slang": [
+              {
+                "tokens": "second banana",
+                "type": "n ",
+                "list": [
+                  {
+                    "explanation": "(喜剧、滑稽戏中的)配角,主角的搭挡,副手",
+                    "example": [
+                      {
+                        "en": "I played second banana to the chairman.",
+                        "zh": "我充当了主席的副手。"
+                      }
+                    ]
+                  }
+                ],
+                "class": ["美国俚语"]
+              },
+              {
+                "tokens": "banana head",
+                "type": "n ",
+                "list": [
+                  {
+                    "explanation": "傻瓜",
+                    "example": [
+                      {
+                        "en": "Ask that banana-head why she is wearing a coat like that in July.",
+                        "zh": " 问问那个傻瓜，她为什么在7月夏天还穿着那样一件外套。"
+                      }
+                    ]
+                  }
+                ],
+                "class": ["美国俚语"]
+              }
+            ],
+            "exchanges": ["bananas", "banana"],
+            "ee_mean": [
+              {
+                "part_name": "Noun",
+                "means": [
+                  {
+                    "word_mean": "1. any of several tropical and subtropical treelike herbs of the genus Musa having a terminal crown of large entire leaves and usually bearing hanging clusters of elongated fruits",
+                    "sentences": []
+                  },
+                  {
+                    "word_mean": "2. elongated crescent-shaped yellow fruit with soft sweet flesh",
+                    "sentences": []
+                  }
+                ]
+              }
+            ],
+            "derivation": [
+              {
+                "yuyuan_name": "late 16th cent.: via Portuguese Spanish from Mande"
+              }
+            ],
+            "baesInfo": {
+              "word_name": "banana",
+              "is_CRI": "1",
+              "exchange": { "word_pl": ["bananas"] },
+              "symbols": [
+                {
+                  "ph_en": "bəˈnɑːnə",
+                  "ph_am": "bəˈnænə",
+                  "ph_other": "",
+                  "ph_en_mp3": "http://res.iciba.com/resource/amp3/0/0/72/b3/72b302bf297a228a75730123efef7c41.mp3",
+                  "ph_am_mp3": "http://res.iciba.com/resource/amp3/1/0/72/b3/72b302bf297a228a75730123efef7c41.mp3",
+                  "ph_tts_mp3": "http://res-tts.iciba.com/7/2/b/72b302bf297a228a75730123efef7c41.mp3",
+                  "ph_en_mp3_bk": "http://res.ksyun.iciba.com/resource/amp3/0/0/72/b3/72b302bf297a228a75730123efef7c41.mp3",
+                  "ph_am_mp3_bk": "http://res.ksyun.iciba.com/resource/amp3/1/0/72/b3/72b302bf297a228a75730123efef7c41.mp3",
+                  "ph_tts_mp3_bk": "http://res-tts.ksyun.iciba.com/7/2/b/72b302bf297a228a75730123efef7c41.mp3",
+                  "parts": [
+                    { "part": "n.", "means": ["香蕉"] },
+                    { "part": "adj.", "means": ["发狂的"] }
+                  ]
+                }
+              ],
+              "baesElse": [
+                {
+                  "word_name": "Banana",
+                  "is_CRI": "0",
+                  "symbols": [
+                    {
+                      "ph_en": "bəˈnɑːnə",
+                      "ph_am": "bəˈnænə",
+                      "ph_other": "",
+                      "ph_en_mp3": "",
+                      "ph_am_mp3": "",
+                      "ph_tts_mp3": "http://res-tts.iciba.com/e/6/f/e6f9c347672daae5a2557ae118f44a1e.mp3",
+                      "parts": [
+                        {
+                          "part": "",
+                          "means": ["[地名] [澳大利亚、刚果民主共和国] 巴纳纳"]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ],
+              "word_tag": [6, 2, 1],
+              "translate_type": 1,
+              "frequence": 2
+            },
+            "abbreviation": [
+              {
+                "mean_en": "build almost nothing anywhere near anyone",
+                "mean_cn": "在靠近任何东西的任何地方几乎什么都没有建造"
+              }
+            ],
+            "new_sentence": [
+              {
+                "tag": "全部",
+                "word": "banana",
+                "meaning": "全部",
+                "sentences": [
+                  {
+                    "id": 2497463,
+                    "type": 1,
+                    "cn": "一串香蕉",
+                    "en": "a bunch of bananas",
+                    "from": "牛津词典",
+                    "ttsUrl": "http://tts.iciba.com/output/EN_Female1/9/1c/714a7e0cc01e1e48a67d3834e3ed3.mp3",
+                    "ttsSize": 0,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 2497460,
+                    "type": 1,
+                    "cn": "一串香蕉",
+                    "en": "...a bunch of bananas.",
+                    "from": "柯林斯高阶英语词典",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_dj/5/b/0/5b078f81e59ad5852fa058436b5105a2.mp3",
+                    "ttsSize": 7,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 2497461,
+                    "type": 1,
+                    "cn": "人们闷得发狂。",
+                    "en": "People went bananas with boredom...",
+                    "from": "柯林斯高阶英语词典",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_dj/a/9/f/a9fc69d66cac46356899df7ec3308f9c.mp3",
+                    "ttsSize": 10,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 2497462,
+                    "type": 1,
+                    "cn": "亚当森会被这个气疯的。",
+                    "en": "Adamson's going to go bananas on this one.",
+                    "from": "柯林斯高阶英语词典",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_dj/1/2/2/122d62b580a9a5e88fa6b9e269152ce4.mp3",
+                    "ttsSize": 13,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 54256,
+                    "type": 1,
+                    "cn": "他还说束顶病和香蕉细菌性枯萎都会影响整个产量.",
+                    "en": "He says bunchy top disease and banana bacterial wilt can both affect entire plantations.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/e/1/2/e12ece8f6f4fa09faf4a9e36182a340c.mp3",
+                    "ttsSize": 28,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 66676,
+                    "type": 1,
+                    "cn": "他们在多米尼加拥有12350英亩的香蕉种植园.",
+                    "en": "They hold 12350 acres of banana plantations in Dominica.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/3/7/6/37620988eb2ea2ccc8ec6cdb1eb9b6a4.mp3",
+                    "ttsSize": 24,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 74944,
+                    "type": 1,
+                    "cn": "我喜欢的梨, 我也是! 我喜欢香蕉, 我也是! 我喜欢苹果, 我也是!",
+                    "en": "I like pear, Me too! I like banana, Me too! I like apple, Me too!",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/8/d/d/8dd2a3bea865e7b3431ec81462167985.mp3",
+                    "ttsSize": 33,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 97365,
+                    "type": 1,
+                    "cn": "日本的书局忙着推出香蕉读本, 一些餐馆也开始推出香蕉餐.",
+                    "en": "Japan's busy book launch of Reading banana, some restaurants have begun to launch meal of bananas.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/8/2/1/82166b56123b92207f9688ebf1197ab2.mp3",
+                    "ttsSize": 28,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 113935,
+                    "type": 1,
+                    "cn": "这只猴子正在吃一根香蕉.",
+                    "en": "The monkey is eating a banana.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/b/5/7/b57922938e56f58d00ffe61369c66a8e.mp3",
+                    "ttsSize": 10,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 143684,
+                    "type": 1,
+                    "cn": "田间药效试验结果表明,对香蕉叶斑病有较好的防效.",
+                    "en": "Field efficacy trials indicated relativity good control of banana sigatoka leaf spot disease.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/d/e/d/ded297fc22c6fd6a410a0cc26ee0620e.mp3",
+                    "ttsSize": 30,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 145362,
+                    "type": 1,
+                    "cn": "他们说一只苹果, 香蕉或者有一部分熟了的水果不需要这样做.",
+                    "en": "They say an apple, banana or a riper pieces piece of fruit is not needed.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/4/e/2/4e2d6d1ba5a6d4cf133d85aa795a2a3f.mp3",
+                    "ttsSize": 23,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 252943,
+                    "type": 1,
+                    "cn": "去蕉叶, 吃的, 看到的, 感受到的, 是一种自然流露的饮食文化!",
+                    "en": "To banana leaves, eat, see, feel, is a natural food culture!",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/3/0/1/301a2fc8c900917f7ccf51837b53d79a.mp3",
+                    "ttsSize": 26,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 266092,
+                    "type": 1,
+                    "cn": "介绍了SXJ4261型香蕉筛的技术特征、工作原理.",
+                    "en": "The paper reports technical characteristic and operation principle of SXJ 4261 Banana Screen.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/9/c/e/9ced083a3cfa6d6277b3c5eb33b0b96f.mp3",
+                    "ttsSize": 34,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 298879,
+                    "type": 1,
+                    "cn": "早餐: 蜂蜜+苹果+香蕉+红枣这样合理 吗 ?",
+                    "en": "Breakfast: Honey + apple + banana + is red jujube so reasonable?",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/d/9/6/d96f26e49e32748e7895c59698f6d214.mp3",
+                    "ttsSize": 26,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 310956,
+                    "type": 1,
+                    "cn": "他中饭吃一根香蕉和一块楔形的奶酪.",
+                    "en": "He had a banana and a wedge of cheese for lunch.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/9/f/e/9fe262c11855d1b49d4d0379ece1dadb.mp3",
+                    "ttsSize": 14,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 313781,
+                    "type": 1,
+                    "cn": "因病毒导致香蕉枯萎的报道最早见于19世纪60年代末的埃塞俄比亚.",
+                    "en": "Banana welt wilt was first reported in Ethiopia in the late 1960 s.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/3/d/c/3dc0b289d4861c98ee10fee829b92dc6.mp3",
+                    "ttsSize": 24,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 359260,
+                    "type": 1,
+                    "cn": "这个地区种植香蕉.",
+                    "en": "The area is under banana cultivation.",
+                    "from": "《现代汉英综合大词典》",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/0/f/2/0f25f2cd4f035a6767a0a7b9fe65cea5.mp3",
+                    "ttsSize": 14,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 366987,
+                    "type": 1,
+                    "cn": "第七单元怎样制作香蕉奶昔?",
+                    "en": "Hou do you make a banana milk shake?",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/4/9/1/49128724f62edea2665dbf0bcfd36707.mp3",
+                    "ttsSize": 10,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 394284,
+                    "type": 1,
+                    "cn": "我看见一个人踏在香蕉皮上滑倒了.",
+                    "en": "I saw a man sliding on a banana skin.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/c/3/7/c374cace88b32800af34e8575e586831.mp3",
+                    "ttsSize": 13,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 405551,
+                    "type": 1,
+                    "cn": "我喜欢苹果,而不是香蕉.",
+                    "en": "I like apple rather than banana.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/5/2/0/520335f121837d3214bbbe3ace38f7e9.mp3",
+                    "ttsSize": 10,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 439617,
+                    "type": 1,
+                    "cn": "小蜜蜂的蜂蜡香蕉护手霜给我手部长时间的滋润.",
+                    "en": "The Burt's Bees Beeswax \u0026 Banana Cream gives me an instant and long lasting relief.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/0/8/0/080c19aee7c83575fdffb51b6052e6a3.mp3",
+                    "ttsSize": 24,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 457329,
+                    "type": 1,
+                    "cn": "建议中的税务变动很可能给政府带来无穷后患.",
+                    "en": "The proposing tax change is likely to prove a banana skin for the government.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/2/7/2/272ec6fbd338f8da73417c8fe8159301.mp3",
+                    "ttsSize": 22,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 487934,
+                    "type": 1,
+                    "cn": "明天还可以改试香蕉或桃子的口味.",
+                    "en": "Tomorrow try a banana or a peach.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/e/d/a/eda2aee6d4122005348600cc3204e693.mp3",
+                    "ttsSize": 11,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 563072,
+                    "type": 1,
+                    "cn": "也可以给其它水果做替代品, 如一个苹果, 香蕉, 他们也是甜的, 但对身体健康.",
+                    "en": "Can give other fruits instead, as pieces of apple, banana, they are sweet too, but healthy.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/2/a/1/2a15c5623d389a8ec09b30c6ce05e17f.mp3",
+                    "ttsSize": 33,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 655696,
+                    "type": 1,
+                    "cn": "他说束顶病和香蕉都会影响整个种植业.",
+                    "en": "He says bunchy bunchy top disease and banana bacterial wilt can both affect an entire plantations.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/6/2/d/62d34f4bb44677455bbc7aeee580b4bd.mp3",
+                    "ttsSize": 31,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 854946,
+                    "type": 1,
+                    "cn": "那些香蕉船看起来有点失控了.",
+                    "en": "Those banana boats sure do seem a little bit control.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/8/b/c/8bc6be50f25a98b49ac202c63f325493.mp3",
+                    "ttsSize": 15,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 890724,
+                    "type": 1,
+                    "cn": "你知道香蕉奶昔怎么做 吗 ?",
+                    "en": "Do you know how to make a banana milk shake?",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/6/1/9/619dcf14d86ace1a3bdfee4502072e9c.mp3",
+                    "ttsSize": 12,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 1002158,
+                    "type": 1,
+                    "cn": "别花言巧语了, 吹捧 是不会使你捞到好处的!",
+                    "en": "Cut out the banana oil ; flattery will get you nowhere!",
+                    "from": "《现代汉英综合大词典》",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/9/7/9/9798d389582b23275021b38ef5b9b2ed.mp3",
+                    "ttsSize": 19,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 1071445,
+                    "type": 1,
+                    "cn": "香蕉一年收两喷.",
+                    "en": "The banana bears two crops every year.",
+                    "from": "《现代汉英综合大词典》",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/8/e/b/8ebae0d770c3ae6883237a1b124f2748.mp3",
+                    "ttsSize": 12,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 1188485,
+                    "type": 1,
+                    "cn": "那个男孩剥去了香蕉皮.",
+                    "en": "The boy skinned the banana.",
+                    "from": "《简明英汉词典》",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/3/f/e/3fe3bcca5a9307d2152990bc5481b969.mp3",
+                    "ttsSize": 8,
+                    "likeNum": 0
+                  }
+                ]
+              },
+              {
+                "tag": "香蕉",
+                "word": "banana",
+                "meaning": "香蕉",
+                "sentences": [
+                  {
+                    "id": 2497463,
+                    "type": 1,
+                    "cn": "一串香蕉",
+                    "en": "a bunch of bananas",
+                    "from": "牛津词典",
+                    "ttsUrl": "http://tts.iciba.com/output/EN_Female1/9/1c/714a7e0cc01e1e48a67d3834e3ed3.mp3",
+                    "ttsSize": 0,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 2497460,
+                    "type": 1,
+                    "cn": "一串香蕉",
+                    "en": "...a bunch of bananas.",
+                    "from": "柯林斯高阶英语词典",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_dj/5/b/0/5b078f81e59ad5852fa058436b5105a2.mp3",
+                    "ttsSize": 7,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 2376947,
+                    "type": 1,
+                    "cn": "在一个实验中，他们向20 位 (28) 志愿者展示了各种物体的图片，然后要求他们只是去找其中一样东西——香蕉。",
+                    "en": "In one experiment, they showed pictures of various objects to twenty 28 volunteers and asked them to find just one of those, a banana.",
+                    "from": "17年6月六级真题（第二套）| 阅读",
+                    "ttsUrl": "http://tts.iciba.com/output/EN_Female1/0/4b/98930ce98758dd61c907cdb5ea5ee.mp3",
+                    "ttsSize": 255,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 2376949,
+                    "type": 1,
+                    "cn": "研究人员称，那些自言自语的人找到香蕉的速度比那些闭口不言的人要稍快一点。",
+                    "en": "Those who talked to themselves found the banana slightly faster than those who didn’t, the researchers say.",
+                    "from": "17年6月六级真题（第二套）| 阅读",
+                    "ttsUrl": "http://tts.iciba.com/output/EN_Female1/5/20/b40ad0a4cd2bbd8fa1442f51666b7.mp3",
+                    "ttsSize": 164,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 13,
+                    "type": 1,
+                    "cn": "到现在为止,这仍然是一条真理,也是我在工作中所积累的经验.",
+                    "en": "This remains true and we have by now a good deal of experience in the matter.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/5/c/c/5cc5dee8ee5ee50cf5221f6eb2bf8f05.mp3",
+                    "ttsSize": 20,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 54256,
+                    "type": 1,
+                    "cn": "他还说束顶病和香蕉细菌性枯萎都会影响整个产量.",
+                    "en": "He says bunchy top disease and banana bacterial wilt can both affect entire plantations.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/e/1/2/e12ece8f6f4fa09faf4a9e36182a340c.mp3",
+                    "ttsSize": 28,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 66676,
+                    "type": 1,
+                    "cn": "他们在多米尼加拥有12350英亩的香蕉种植园.",
+                    "en": "They hold 12350 acres of banana plantations in Dominica.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/3/7/6/37620988eb2ea2ccc8ec6cdb1eb9b6a4.mp3",
+                    "ttsSize": 24,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 74944,
+                    "type": 1,
+                    "cn": "我喜欢的梨, 我也是! 我喜欢香蕉, 我也是! 我喜欢苹果, 我也是!",
+                    "en": "I like pear, Me too! I like banana, Me too! I like apple, Me too!",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/8/d/d/8dd2a3bea865e7b3431ec81462167985.mp3",
+                    "ttsSize": 33,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 97365,
+                    "type": 1,
+                    "cn": "日本的书局忙着推出香蕉读本, 一些餐馆也开始推出香蕉餐.",
+                    "en": "Japan's busy book launch of Reading banana, some restaurants have begun to launch meal of bananas.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/8/2/1/82166b56123b92207f9688ebf1197ab2.mp3",
+                    "ttsSize": 28,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 113935,
+                    "type": 1,
+                    "cn": "这只猴子正在吃一根香蕉.",
+                    "en": "The monkey is eating a banana.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/b/5/7/b57922938e56f58d00ffe61369c66a8e.mp3",
+                    "ttsSize": 10,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 143684,
+                    "type": 1,
+                    "cn": "田间药效试验结果表明,对香蕉叶斑病有较好的防效.",
+                    "en": "Field efficacy trials indicated relativity good control of banana sigatoka leaf spot disease.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/d/e/d/ded297fc22c6fd6a410a0cc26ee0620e.mp3",
+                    "ttsSize": 30,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 145362,
+                    "type": 1,
+                    "cn": "他们说一只苹果, 香蕉或者有一部分熟了的水果不需要这样做.",
+                    "en": "They say an apple, banana or a riper pieces piece of fruit is not needed.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/4/e/2/4e2d6d1ba5a6d4cf133d85aa795a2a3f.mp3",
+                    "ttsSize": 23,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 266092,
+                    "type": 1,
+                    "cn": "介绍了SXJ4261型香蕉筛的技术特征、工作原理.",
+                    "en": "The paper reports technical characteristic and operation principle of SXJ 4261 Banana Screen.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/9/c/e/9ced083a3cfa6d6277b3c5eb33b0b96f.mp3",
+                    "ttsSize": 34,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 298879,
+                    "type": 1,
+                    "cn": "早餐: 蜂蜜+苹果+香蕉+红枣这样合理 吗 ?",
+                    "en": "Breakfast: Honey + apple + banana + is red jujube so reasonable?",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/d/9/6/d96f26e49e32748e7895c59698f6d214.mp3",
+                    "ttsSize": 26,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 310956,
+                    "type": 1,
+                    "cn": "他中饭吃一根香蕉和一块楔形的奶酪.",
+                    "en": "He had a banana and a wedge of cheese for lunch.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/9/f/e/9fe262c11855d1b49d4d0379ece1dadb.mp3",
+                    "ttsSize": 14,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 313781,
+                    "type": 1,
+                    "cn": "因病毒导致香蕉枯萎的报道最早见于19世纪60年代末的埃塞俄比亚.",
+                    "en": "Banana welt wilt was first reported in Ethiopia in the late 1960 s.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/3/d/c/3dc0b289d4861c98ee10fee829b92dc6.mp3",
+                    "ttsSize": 24,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 359260,
+                    "type": 1,
+                    "cn": "这个地区种植香蕉.",
+                    "en": "The area is under banana cultivation.",
+                    "from": "《现代汉英综合大词典》",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/0/f/2/0f25f2cd4f035a6767a0a7b9fe65cea5.mp3",
+                    "ttsSize": 14,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 366987,
+                    "type": 1,
+                    "cn": "第七单元怎样制作香蕉奶昔?",
+                    "en": "Hou do you make a banana milk shake?",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/4/9/1/49128724f62edea2665dbf0bcfd36707.mp3",
+                    "ttsSize": 10,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 394284,
+                    "type": 1,
+                    "cn": "我看见一个人踏在香蕉皮上滑倒了.",
+                    "en": "I saw a man sliding on a banana skin.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/c/3/7/c374cace88b32800af34e8575e586831.mp3",
+                    "ttsSize": 13,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 405551,
+                    "type": 1,
+                    "cn": "我喜欢苹果,而不是香蕉.",
+                    "en": "I like apple rather than banana.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/5/2/0/520335f121837d3214bbbe3ace38f7e9.mp3",
+                    "ttsSize": 10,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 439617,
+                    "type": 1,
+                    "cn": "小蜜蜂的蜂蜡香蕉护手霜给我手部长时间的滋润.",
+                    "en": "The Burt's Bees Beeswax \u0026 Banana Cream gives me an instant and long lasting relief.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/0/8/0/080c19aee7c83575fdffb51b6052e6a3.mp3",
+                    "ttsSize": 24,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 487934,
+                    "type": 1,
+                    "cn": "明天还可以改试香蕉或桃子的口味.",
+                    "en": "Tomorrow try a banana or a peach.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/e/d/a/eda2aee6d4122005348600cc3204e693.mp3",
+                    "ttsSize": 11,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 563072,
+                    "type": 1,
+                    "cn": "也可以给其它水果做替代品, 如一个苹果, 香蕉, 他们也是甜的, 但对身体健康.",
+                    "en": "Can give other fruits instead, as pieces of apple, banana, they are sweet too, but healthy.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/2/a/1/2a15c5623d389a8ec09b30c6ce05e17f.mp3",
+                    "ttsSize": 33,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 655696,
+                    "type": 1,
+                    "cn": "他说束顶病和香蕉都会影响整个种植业.",
+                    "en": "He says bunchy bunchy top disease and banana bacterial wilt can both affect an entire plantations.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/6/2/d/62d34f4bb44677455bbc7aeee580b4bd.mp3",
+                    "ttsSize": 31,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 854946,
+                    "type": 1,
+                    "cn": "那些香蕉船看起来有点失控了.",
+                    "en": "Those banana boats sure do seem a little bit control.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/8/b/c/8bc6be50f25a98b49ac202c63f325493.mp3",
+                    "ttsSize": 15,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 890724,
+                    "type": 1,
+                    "cn": "你知道香蕉奶昔怎么做 吗 ?",
+                    "en": "Do you know how to make a banana milk shake?",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/6/1/9/619dcf14d86ace1a3bdfee4502072e9c.mp3",
+                    "ttsSize": 12,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 972172,
+                    "type": 1,
+                    "cn": "香蕉树林: 香蕉可以在糕饼店被制成美味的糕点, 或者干脆就这么吃.",
+                    "en": "Banana Farm: Bananas make very tasty pastries at the bakery , or eat them raw.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/7/d/0/7d0be6e51419721b14f6155fc7c709d3.mp3",
+                    "ttsSize": 26,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 973158,
+                    "type": 1,
+                    "cn": "他踩在香蕉皮上滑倒时的样子非常滑稽.",
+                    "en": "When he slipped on a banana skin it was enough to make a cat laugh.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/f/b/f/fbf640bc16f4e4391a24034d73e34779.mp3",
+                    "ttsSize": 18,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 1034002,
+                    "type": 1,
+                    "cn": "我喜欢苹果. (梨,李子, 香蕉,桃子, 橙子, 葡萄)",
+                    "en": "I like an apple a pear a plum, a banana a peach, an orange, grapes.",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/6/1/7/61774e90b52f7f67fd72c23283d8ad57.mp3",
+                    "ttsSize": 24,
+                    "likeNum": 0
+                  },
+                  {
+                    "id": 1066783,
+                    "type": 1,
+                    "cn": "乔尔: 何不从早餐吃一个橘子或香蕉做起?",
+                    "en": "Joel: Why not start out by eating an orange or a banana with your breakfast?",
+                    "from": "期刊摘选",
+                    "ttsUrl": "http://res-tts.iciba.com/tts_new_dj/0/1/6/0164acc3112e21329555ed64cd2239e1.mp3",
+                    "ttsSize": 23,
+                    "likeNum": 0
+                  }
+                ]
+              }
+            ]
+          },
+          "history": []
+        },
+        "fy": {
+          "fyHeight": "auto",
+          "transedWord": {},
+          "allLanguateMap": {},
+          "searchWord": "",
+          "loading": false,
+          "upbroadparams": { "reqid": "", "version": "", "ttype": "" }
+        },
+        "fyPassage": {
+          "blockToggle": "UploadPanel",
+          "passageFile": {},
+          "languageParams": {
+            "from": "英语",
+            "fromType": "en",
+            "to": "中文",
+            "toType": "zh"
+          },
+          "progressInfo": {},
+          "tid": null,
+          "fileUrl": null,
+          "formalDownloadurl": "",
+          "imgUrl": null,
+          "allOptionsMap": null
+        },
+        "rgfy": { "billInformation": {} },
+        "grammar": {
+          "res": [],
+          "data": {},
+          "contractData": [],
+          "defaultText": "",
+          "cache": { "refName": "", "repairList": [], "ignoreList": [] },
+          "errorData": {
+            "标点符号错误": [],
+            "语法错误": [],
+            "拼写错误": [],
+            "句子推荐": [],
+            "句子改写": []
+          },
+          "errorIds": {
+            "标点符号错误": [],
+            "语法错误": [],
+            "拼写错误": [],
+            "句子推荐": [],
+            "句子改写": []
+          },
+          "repairList": [],
+          "copyMap": {},
+          "ignoreList": [],
+          "refName": "",
+          "prevInput": "",
+          "isShowErrorType": null,
+          "canContract": false,
+          "sentences": [],
+          "polish": [],
+          "error": ""
+        },
+        "translate": {
+          "picStep": 0,
+          "picFile": null,
+          "picUrl": "",
+          "picResult": null,
+          "picLanguage": {
+            "from": "英语",
+            "fromType": "en",
+            "to": "中文",
+            "toType": "zh"
+          },
+          "picTranslating": false,
+          "history": [],
+          "allLanguageMap": {}
+        }
+      }
+    }
+  },
+  "page": "/word",
+  "query": { "w": "banana" },
+  "buildId": "AQsvtdobctQgElj2T9LXn",
+  "isFallback": false,
+  "customServer": true,
+  "gip": true,
+  "scriptLoader": []
+}
