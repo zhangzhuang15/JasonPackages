@@ -1,10 +1,10 @@
-import { RequestHeader } from "../http-header";
+import { RequestHeader } from "@/http-header";
 import {
   Cache_Control_Suggest,
   Content_Disposition_Suggest,
   Content_Encoding_Suggest,
   Popular_MIMEType
-} from "../http-header/SuggestHeaderValue";
+} from "@/http-header/SuggestHeaderValue";
 
 /**
  * BrowserRequestHeaderCollectionEngine is responsible for

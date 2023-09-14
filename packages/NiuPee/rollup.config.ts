@@ -33,7 +33,7 @@ function developmentRollupConfig() {
         // nodeResolve插件的 order 是 "post"，会在resolveId阶段执行，且是最后一个执行，
         // typescript插件会在 nodeResolve插件之前执行，但不会造成什么影响；
         nodeResolve({
-          browser: true
+          mainFields: ["browser", "exports", "main"]
         }),
         // [typescript插件仓库](https://github.com/rollup/plugins/tree/master/packages/typescript)
         typescript({

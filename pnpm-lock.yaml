@@ -45,15 +45,17 @@ importers:
       '@types/node': ^18.16.3
       debug: ^4.3.4
       rollup: ^3.21.4
+      typescript: ^5.2.2
     dependencies:
       debug: 4.3.4
       rollup: 3.21.4
     devDependencies:
       '@rollup/plugin-commonjs': 24.1.0_rollup@3.21.4
       '@rollup/plugin-node-resolve': 15.0.2_rollup@3.21.4
-      '@rollup/plugin-typescript': 11.1.0_rollup@3.21.4
+      '@rollup/plugin-typescript': 11.1.0_agik4zfmlv555hcvoml2uzxhva
       '@types/debug': 4.1.7
       '@types/node': 18.16.3
+      typescript: 5.2.2
 
   packages/line-noise:
     specifiers:
@@ -918,7 +920,7 @@ packages:
       rollup: 3.21.4
     dev: true
 
-  /@rollup/plugin-typescript/11.1.0_rollup@3.21.4:
+  /@rollup/plugin-typescript/11.1.0_agik4zfmlv555hcvoml2uzxhva:
     resolution: {integrity: sha512-86flrfE+bSHB69znnTV6kVjkncs2LBMhcTCyxWgRxLyfXfQrxg4UwlAqENnjrrxnSNS/XKCDJCl8EkdFJVHOxw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -934,6 +936,7 @@ packages:
       '@rollup/pluginutils': 5.0.2_rollup@3.21.4
       resolve: 1.22.2
       rollup: 3.21.4
+      typescript: 5.2.2
     dev: true
 
   /@rollup/pluginutils/5.0.2_rollup@3.21.4:
@@ -6602,6 +6605,12 @@ packages:
   /typescript/4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
+  /typescript/5.2.2:
+    resolution: {integrity: sha512-mI4WrpHsbCIcwT9cF4FZvr80QUeKvsUsUvKDoR+X/7XHQH98xYD8YHZg7ANtz2GtZt/CBq2QJ0thkGJMHfqc1w==}
+    engines: {node: '>=14.17'}
     hasBin: true
     dev: true
 

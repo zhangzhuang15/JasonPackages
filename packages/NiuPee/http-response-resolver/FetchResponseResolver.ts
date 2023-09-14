@@ -1,6 +1,6 @@
 import debug from "debug";
 import type { ResolvedResponse } from "./index";
-import { FetchState } from "../http-request-engine/BrowserRequestEngine";
+import { FetchState } from "../http-request-engine/state";
 
 const fetchDebugging = debug("BrowserRequestFetchFireState");
 

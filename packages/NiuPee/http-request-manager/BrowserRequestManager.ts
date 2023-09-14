@@ -1,27 +1,26 @@
 /* eslint-disable max-classes-per-file */
 
-import { BrowserRequestHeaderCollectionEngine } from "../http-header-collection-engine/BrowserRequestHeaderCollectionEngine";
-import type {
-  RequestState,
-  FetchState,
-  Result
-} from "../http-request-engine/BrowserRequestEngine";
-import { BrowserRequestEngine } from "../http-request-engine/BrowserRequestEngine";
+import { BrowserRequestHeaderCollectionEngine } from "@/http-header-collection-engine/BrowserRequestHeaderCollectionEngine";
+import type { RequestState, FetchState } from "@/http-request-engine/state";
+import type { Result } from "@/http-request-engine/result";
+import type { Engine } from "@/http-request-engine/engine";
+import { BrowserRequestEngine } from "@/http-request-engine/BrowserRequestEngine";
 import {
   resolveXHRError,
   resolveXHRResponse
-} from "../http-response-resolver/XHRResponseResolver";
-import { ResolvedResponse } from "../http-response-resolver";
+} from "@/http-response-resolver/XHRResponseResolver";
+import { ResolvedResponse } from "@/http-response-resolver";
 import {
   resolveFetchError,
   resolveFetchResponse
-} from "../http-response-resolver/FetchResponseResolver";
+} from "@/http-response-resolver/FetchResponseResolver";
+import { DefaultNonBrowserRequestEngine } from "@/http-request-engine/NonBrowserRequestEngine";
 
 // in this part, we use state mode to clarify every step in a request.
 //
-// BrowserRequestUrlState only allows you to change the query;
+// RequestUrlState only allows you to change the query;
 //
-// BrowserRequestHeadersState only allows you to change the headers and body data;
+// RequestHeadersState only allows you to change the headers and body data;
 //
 // BrowserRequestXHRFireState will dispatch the request by XMLHttpRequest API and
 // return the response to you;
@@ -50,7 +49,9 @@ class BrowserRequestXHRFireState {
 
   private uploadTracker: RequestState["uploadTracker"];
 
-  private constructor(
+  private requestEngine: Engine = BrowserRequestEngine.fire_by_XHR;
+
+  protected constructor(
     private method: RequestState["method"],
     private url: RequestState["url"],
     private headers: RequestState["headers"],
@@ -64,6 +65,37 @@ class BrowserRequestXHRFireState {
     data: RequestState["data"]
   ) {
     return new BrowserRequestXHRFireState(method, url, headers, data);
+  }
+
+  protected getRequestState(): RequestState {
+    const {
+      method,
+      url,
+      headers,
+      data,
+      timeout,
+      credential,
+      responseType,
+      downloadTracker,
+      uploadTracker
+    } = this;
+
+    return {
+      method,
+      url,
+      headers,
+      data,
+      timeout,
+      credential,
+      responseType,
+      downloadTracker,
+      uploadTracker
+    };
+  }
+
+  useRequestEngine(requestEngine: Engine) {
+    this.requestEngine = requestEngine;
+    return this;
   }
 
   withCookie() {
@@ -133,32 +165,9 @@ class BrowserRequestXHRFireState {
 
   /** make the real request, "siu" is inspired by CR7(C Ronaldo) */
   async siu(): Promise<Result<ResolvedResponse<XMLHttpRequest["response"]>>> {
-    const {
-      method,
-      url,
-      headers,
-      data,
-      timeout,
-      credential,
-      responseType,
-      downloadTracker,
-      uploadTracker
-    } = this;
+    const state: RequestState = this.getRequestState();
 
-    const state: RequestState = {
-      method,
-      url,
-      headers,
-      data,
-      timeout,
-      credential,
-      responseType,
-      downloadTracker,
-      uploadTracker
-    };
-
-    const { result: resultPromise, cancelSwitch } =
-      BrowserRequestEngine.fire_by_XHR(state);
+    const { result: resultPromise, cancelSwitch } = this.requestEngine(state);
 
     return {
       result: (resultPromise as Promise<XMLHttpRequest>)
@@ -466,7 +475,11 @@ class BrowserRequestFetchFireState {
   }
 }
 
-class BrowserRequestHeadersState extends BrowserRequestHeaderCollectionEngine {
+/**
+ * 采用继承的方式，而不是采用组合的方式，是因为组合的方式没办法获取到 BrowserRequestHeaderCollectionEngine
+ * 各个成员方法的智能提示
+ */
+class RequestHeadersState extends BrowserRequestHeaderCollectionEngine {
   private constructor(
     private method: RequestState["method"],
     private url: RequestState["url"]
@@ -475,7 +488,7 @@ class BrowserRequestHeadersState extends BrowserRequestHeaderCollectionEngine {
   }
 
   static create(method: RequestState["method"], url: RequestState["url"]) {
-    return new BrowserRequestHeadersState(method, url);
+    return new RequestHeadersState(method, url);
   }
 
   /**
@@ -496,9 +509,20 @@ class BrowserRequestHeadersState extends BrowserRequestHeaderCollectionEngine {
     const headers = this.collect();
     return BrowserRequestFetchFireState.create(method, url, headers, data);
   }
+
+  nonBrowserFire(data: any) {
+    const { method, url } = this;
+    const headers = this.collect();
+    return BrowserRequestXHRFireState.create(
+      method,
+      url,
+      headers,
+      data
+    ).useRequestEngine(DefaultNonBrowserRequestEngine.fire);
+  }
 }
 
-class BrowserRequestUrlState {
+class RequestUrlState {
   private query: [string, string][];
 
   private constructor(
@@ -509,7 +533,7 @@ class BrowserRequestUrlState {
   }
 
   static create(method: RequestState["method"], url: RequestState["url"]) {
-    return new BrowserRequestUrlState(method, url);
+    return new RequestUrlState(method, url);
   }
 
   /** API to modified query */
@@ -620,28 +644,28 @@ class BrowserRequestUrlState {
       hash === "" ? hash : `#${hash}`
     }`;
 
-    return BrowserRequestHeadersState.create(this.method, url);
+    return RequestHeadersState.create(this.method, url);
   }
 }
 
 export class BrowserRequestManager {
   static get(url: RequestState["url"]) {
-    return BrowserRequestUrlState.create("GET", url);
+    return RequestUrlState.create("GET", url);
   }
 
   static post(url: RequestState["url"]) {
-    return BrowserRequestUrlState.create("POST", url);
+    return RequestUrlState.create("POST", url);
   }
 
   static head(url: RequestState["url"]) {
-    return BrowserRequestUrlState.create("HEAD", url);
+    return RequestUrlState.create("HEAD", url);
   }
 
   static put(url: RequestState["url"]) {
-    return BrowserRequestUrlState.create("PUT", url);
+    return RequestUrlState.create("PUT", url);
   }
 
   static options(url: RequestState["url"]) {
-    return BrowserRequestUrlState.create("OPTIONS", url);
+    return RequestUrlState.create("OPTIONS", url);
   }
 }

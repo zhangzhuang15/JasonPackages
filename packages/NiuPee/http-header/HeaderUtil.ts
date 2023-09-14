@@ -90,8 +90,8 @@ export class HeaderUtil {
    * forbidden request header is header that you cannot modified in the context of browser.
    * only browser itself can modify these headers.
    *
-   * e.g. you cannot change the `Cookie` header with `XMLHttpRequest` API, but you can
-   * change `cookie` itself using `document.cookie`
+   * e.g. you cannot change the `Cookie` header with {@link XMLHttpRequest.setRequestHeader | setRequestHeader of XMLHttpRequest}  API,
+   * but you can change `cookie` itself using {@link document.cookie}
    *
    * forbidden response header is `Set-Cookie` so far.
    */

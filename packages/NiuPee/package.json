@@ -35,7 +35,8 @@
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-typescript": "^11.1.0",
     "@types/debug": "^4.1.7",
-    "@types/node": "^18.16.3"
+    "@types/node": "^18.16.3",
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "debug": "^4.3.4",

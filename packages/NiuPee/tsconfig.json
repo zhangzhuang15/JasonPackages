@@ -2,6 +2,12 @@
   "extends": "../../tsconfig.json",
   "exclude": ["test/*", "node_modules/*"],
   "compilerOptions": {
-    "lib": ["DOM", "ES2016"]
+    "lib": ["DOM", "ES2016"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "module": "ESNext",
+    "moduleResolution": "Bundler"
   }
 }
