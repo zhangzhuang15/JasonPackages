@@ -186,3 +186,30 @@ export function requestHttp2ForText(
 
   return promise;
 }
+
+let timeOutId: any;
+let curPromiseResolver: any;
+
+// 用这种方式来限制短时间内发送多个翻译请求
+export const debounceBlocker = (milliseconds: number) => {
+  const { promise, resolve } = createDeferredPromise<boolean>();
+
+  if (curPromiseResolver) {
+    curPromiseResolver(true);
+  }
+
+  if (timeOutId) {
+    clearTimeout(timeOutId);
+  }
+
+  timeOutId = setTimeout(() => {
+    clearTimeout(timeOutId);
+    timeOutId = null;
+    resolve(false);
+    curPromiseResolver = null;
+  }, milliseconds);
+
+  curPromiseResolver = resolve;
+
+  return promise;
+};

@@ -57,4 +57,20 @@ $ npm install -g yo generator-code @vscode/vsce
 `vsce` is the command line tool to help you pack your
 vscode plugin and publish it.
 
+## How to pack your plugin
+
+```sh
+$ vsce package
+```
+
+then, under your project root directory, there will be
+a `.vsix` file, this is your package of plugin. You can
+share this file with your friends, they could install your plugin using that file.
+
+## How to publish your plugin
+
+```sh
+$ vsce publish
+```
+
 Token: xavg6lbeyjhtvcxvjrezp7gpgsxdnidhnduzswcww7m4gzo7yvga

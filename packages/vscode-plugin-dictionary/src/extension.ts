@@ -2,8 +2,12 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
 import { Hover, MarkdownString, window, languages, commands } from "vscode";
-import translateToChinese from "./translation-impl/translate-to-chinese";
 import {
+  translate as translateToChinese,
+  FAILEDTIPS
+} from "./translation-impl/translate-to-chinese";
+import {
+  debounceBlocker,
   getCurrentSelectionPosition,
   getCurrentSelectionText,
   registerOutputChannel,
@@ -30,6 +34,12 @@ export function activate(context: vscode.ExtensionContext) {
           return null;
         }
 
+        const blockBelow = await debounceBlocker(500);
+
+        if (blockBelow) {
+          return null;
+        }
+
         // 光标位置不在选中的文字内，不给出翻译提示
         const currentSelectionPosition = getCurrentSelectionPosition(
           window.activeTextEditor
@@ -43,10 +53,10 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         const text = getCurrentSelectionText(window.activeTextEditor);
-        const markdownString = await translateToChinese(text);
+        let markdownString = await translateToChinese(text);
 
         if (markdownString === "") {
-          return null;
+          markdownString = FAILEDTIPS;
         }
 
         const markdownContents = new MarkdownString(markdownString);
