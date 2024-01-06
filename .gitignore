@@ -1,6 +1,13 @@
 node_modules
 node_modules/**/*
+**/*/node_modules
+**/*/node_modules/**/*
+
+**/*/dist
+**/*/dist/**/*
 **/*/target
 **/*/NiuPee/test/**/*.mp[34]
 **/*/line-noise/**/example/package-lock.json
 lerna-debug.log
+
+.vscode
