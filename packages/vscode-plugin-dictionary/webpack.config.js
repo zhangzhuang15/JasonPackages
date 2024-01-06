@@ -25,7 +25,12 @@ const extensionConfig = {
   },
   resolve: {
     // support reading TypeScript and JavaScript files, 📖 -> https://github.com/TypeStrong/ts-loader
-    extensions: [".ts", ".js"]
+    extensions: [".ts", ".js"],
+
+    // 增加对 tsconfig.json `paths`选项的支持
+    alias: {
+      "@": path.resolve(__dirname, "src")
+    }
   },
   module: {
     rules: [

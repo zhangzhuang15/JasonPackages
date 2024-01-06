@@ -64,7 +64,11 @@ function icibaDecoder(htmlText: string): Translation {
   const translationData = JSON.parse(jsonString) as RawTranslation;
   const { symbols } =
     translationData.props.pageProps.initialReduxState.word.wordInfo.baesInfo;
-  const coreData = symbols[0];
+  const coreData = symbols?.[0];
+
+  if (coreData === undefined) {
+    throw new Error("the word may be invalid");
+  }
 
   return {
     translations: coreData.parts.map(item => ({
@@ -113,6 +117,7 @@ function formatAsMarkdownString(
          })
          .join("\n")}
     </section>
+    <br />
     `.trim();
 
   return result;
@@ -122,7 +127,7 @@ function formatAsMarkdownString(
  * 根据单词，返回翻译内容，翻译内容可以在 markdown 中展示
  * @param word 要翻译的词
  */
-export default async function translate(word: string): Promise<string> {
+export async function translate(word: string): Promise<string> {
   if (word === "") {
     return "";
   }
@@ -138,7 +143,11 @@ export default async function translate(word: string): Promise<string> {
       const outputChannel = getOutputChannel();
       outputChannel?.show(true);
       outputChannel?.append(
-        `cannot get the result from ${url}\n` + `specific error: ${error}`
+        `${new Date().toLocaleString()}\n` +
+          `search word: ${word}\n` +
+          `cannot get the result from ${url}\n` +
+          `specific error: ${error}\n` +
+          "\n"
       );
     }
   }
@@ -199,7 +208,7 @@ interface RawTranslation {
         word: {
           wordInfo: {
             baesInfo: {
-              symbols: TranslationSymbol[];
+              symbols?: TranslationSymbol[];
             };
           };
         };
@@ -207,3 +216,9 @@ interface RawTranslation {
     };
   };
 }
+
+// 单词拼写可能有错，给出如下提示
+export const FAILEDTIPS = `
+<h2>From vscode-plugin-dictionary</h2>
+<p>Is this word valid ?</p>
+<br />`;
