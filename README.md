@@ -36,3 +36,18 @@ To start a mono-repo project with `lerna` + `pnpm`:
     > when use pnpm and lerna together, lerna will
     > block `link` `add` `bootstrap` command, so
     > you cannot install dependencies with lerna
+
+## how to add a new package
+1. create a new directory under `packages` directory, assume that directory name is `my-luck`
+2. get into `my-luck`, run `pnpm init`
+3. get started with your project, such as `npm install`
+> dont worry about installing packages under `my-luck`.
+> though there is a node_modules directory, real
+> packages are installed under node_modules which
+> is under the mono-repo root directory.
+
+## how to publish
+1. register in npm official website, remember your password and username
+2. get into your package root directory
+3. run `npm login`, input your username and password
+4. run  `npm publish --access public`
