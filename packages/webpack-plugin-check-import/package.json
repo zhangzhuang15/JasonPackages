@@ -1,0 +1,31 @@
+{
+  "name": "@jasonzhang15/webpack-plugin-check-import",
+  "version": "0.1.0",
+  "description": "A webpack plugin helps you check import statement, make webpack building failed if there is undefined variable or function in your import statement",
+  "main": "index.js",
+  "exports": {
+    "default": "./index.js"
+  },
+  "scripts": {
+  },
+  "dependencies": {
+    "picocolors": "^1.0.1"
+  },
+  "keywords": [
+    "webpack-plugin", 
+    "import statement", 
+    "check", 
+    "commonjs"],
+  "author": "JasonZhang",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "repository": {
+    "url": "https://github.com/zhangzhuang15/JasonPackages/tree/dev/packages/webpack-plugin-check-import",
+    "type": "github"
+  },
+  "bugs": {
+    "url": "https://github.com/zhangzhuang15/JasonPackages/issues"
+  }
+}
