@@ -1,0 +1,6 @@
+{
+    "scripts": {},
+    "dependencies": {
+        "@jasonzhang15/func-tool": "file:../"
+    }
+}

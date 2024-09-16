@@ -1,0 +1,56 @@
+{
+  "name": "@jasonzhang/func-tool",
+  "version": "0.0.1",
+  "description": "Jason Zhang's function tool, inspired by Rust",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "bundle-script": "rollup --config rollup.config.ts --configPlugin typescript",
+    "build:dev": "pnpm run bundle-script --env development",
+    "build:production": "pnpm run bundle-script --env production",
+    "clear": "rm -rf target"
+  },
+  "keywords": [
+    "function tool",
+    "function programming",
+    "optional",
+    "chainable",
+    "rust",
+    "rust-like",
+    "jasonzhang",
+    "then",
+    "if else"
+  ],
+  "author": "JasonZhang",
+  "license": "MIT",
+  "types": "./target/production/esm/types/main.d.ts",
+  "main": "./target/production/cjs/main.js",
+  "exports": {
+    ".": {
+      "node": {
+        "require": "./target/production/cjs/main.js",
+        "import": "./target/production/esm/main.js",
+        "types": "./target/production/esm/types/main.d.ts"
+      },
+      "default": {
+        "import": "./target/production/esm/main.js",
+        "types": "./target/production/esm/types/main.d.ts"
+      }
+    }
+  },
+  "files": [
+    "target",
+    "README.md"
+  ],
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-typescript": "^11.1.0",
+    "@types/debug": "^4.1.7",
+    "@types/node": "^18.16.3",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "debug": "^4.3.4",
+    "rollup": "^3.21.4"
+  }
+}
