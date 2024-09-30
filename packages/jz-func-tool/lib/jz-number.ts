@@ -1,4 +1,5 @@
 import { JZBoolean } from "./jz-boolean";
+import { optional } from "./jz-option";
 
 export class JZNumber {
     private constructor(private readonly value: number) {}
@@ -53,11 +54,11 @@ export class JZNumber {
         return this.lt(0);
     }
 
-    isNonNegative() {
+    isntNegative() {
         return this.ge(0);
     }
 
-    isNonPositive() {
+    isntPositive() {
         return this.le(0);
     }
 
@@ -93,22 +94,37 @@ export class JZNumber {
         );
     }
 
-    deref() {
+    take() {
         return this.value;
     }
 
     map<U>(effect: (val: number) => U) {
         const result = effect(this.value);
-        if (typeof result === 'boolean') {
-            return JZBoolean.of(this.value, result);
-        }
-        if (typeof result === 'number') {
-            return JZNumber.of(result);
-        }
-        return result;
+        return optional(result);
     }
 
     static of(val: number) {
         return new JZNumber(val);
     }
+}
+
+/**
+ * create jz-number, so you can benefit from it, enjoy
+ * the functional programming advantage.
+ * 
+ * ## Example
+ * ```ts
+ * const values = [1, 10, 100]
+ * const val = ctNumber(values[0])
+ * val
+ *  .gt(10)
+ *  .orThen(_ => {
+ *    console.log(_ + "is not bigger than ", 10)
+ * })
+ * ```
+ * @param val 
+ * @returns 
+ */
+export function ctNumber(val: number) {
+    return JZNumber.of(val);
 }

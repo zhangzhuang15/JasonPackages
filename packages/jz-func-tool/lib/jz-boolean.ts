@@ -1,15 +1,10 @@
-import { JZOption, None } from "./jz-option";
+import { JZOption, None, optional, ctOptionalForJzBoolean, NoneSymbol } from "./jz-option";
 
-
-export class JZBoolean<T>{
+export class JZBoolean<T> {
     private constructor(
         private value: T,
         private state: boolean
     ) {}
-
-    deref() {
-        return this.state;
-    }
 
     take() {
         return this.value;
@@ -20,13 +15,13 @@ export class JZBoolean<T>{
      * @param effect 
      * @returns 
      */
-    andThen<M>(effect: (val: T) => [M, boolean]): JZBoolean<M> | JZBoolean<T> {
+    andThen<M>(effect: (val: T) => M): JZOption<M> | None | JZOption<NoneSymbol, T> {
         if (this.state) {
-            const [result, newState] = effect(this.value);
-            return JZBoolean.of(result, newState);
+            const result = effect(this.value);
+            return optional(result);
         }
 
-        return this;
+        return ctOptionalForJzBoolean(this.value);
     }
 
     /**
@@ -34,37 +29,42 @@ export class JZBoolean<T>{
      * @param effect 
      * @returns 
      */
-    orThen<M>(effect: (val: T) => [M, boolean]): JZBoolean<M> | JZBoolean<T> {
+    orThen<M>(effect: (val: T) => M): JZOption<M> | None | JZOption<NoneSymbol, T> {
         if (!this.state) {
-            const [result, newState] = effect(this.value);
-            return JZBoolean.of(result, newState);
+            const result = effect(this.value);
+            return optional(result);
         }
 
-        return this;
+        return ctOptionalForJzBoolean(this.value);
     }
 
-
-    static of(val: boolean): JZBoolean<None>;
-    static of<M>(val: M, state: boolean): JZBoolean<M>;
-    static of<M>(
-        val: boolean | M,
-        state?: boolean
-    ) {
-        if (typeof val === "boolean" && state === undefined) {
-            return new JZBoolean(JZOption.of(null), val);
-        }
-
-        if (typeof val === "boolean" && state !== undefined) {
-            return new JZBoolean(
-                JZBoolean.of(val),
-                state
-            );
-        }
-
-        if (typeof val !== "boolean" && state === undefined) {
-            throw Error("state is required");
-        }
-
-        return new JZBoolean(val, state!);
+    static of<M>(val: M, state: boolean): JZBoolean<M> {
+        return new JZBoolean(val, state);
     }
+}
+
+/**
+ * create jzBoolean, take state as inital state, take initValue
+ * as initial wrapped value, then you can use chainable expression
+ * to do some logic operations.
+ * 
+ * ## Example
+ * ```ts
+ * const p = ctBoolean(false, 100)
+ * p
+ *  .andThen(_ => {
+ *   console.log("yes")
+ *  })
+ *  .fail(_ => {
+ *   console.log("no")
+ *  })
+ * // print "no"
+ * ```
+ * 
+ * @param state 
+ * @param initValue 
+ * @returns 
+ */
+export function ctBoolean<M>(state: boolean, initValue: M) {
+    return JZBoolean.of(initValue, state)
 }

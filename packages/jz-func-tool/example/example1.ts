@@ -1,4 +1,4 @@
-import { jzArrayEvery } from "@jasonzhang15/func-tool";
+import { jzArrayEvery } from "@jasonzhang15/bool-then";
 
 const arr = [1, 5, 10];
 
@@ -10,15 +10,12 @@ if (arr.every(item => item > 10)) {
 }
 
 // functional way
-const v = 
-    jzArrayEvery(
-        arr,
-        item => item > 10
-    ).andThen(val => {
-        console.log("every item > 0")
-        return [val[0], true] as [number, boolean]
-    }).orThen(val => {
-        console.log("every item")
-        return [(val as number[])[1], false] as [number, boolean]
-    }).take();
-console.log(v);
+const result = jzArrayEvery(arr, item => item > 10)
+result.andThen(val => { console.log("every item > 0")})
+result.orThen(val => { console.log("every item")})
+
+
+// or
+jzArrayEvery(arr, item => item > 10)
+    .andThen(_ => { console.log("every item > 0")})
+    .fail(_ => { console.log("every item")})

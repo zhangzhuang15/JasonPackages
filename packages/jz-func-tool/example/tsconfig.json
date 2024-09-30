@@ -2,6 +2,9 @@
     "compilerOptions": {
         "module": "CommonJS",
         "moduleResolution": "Node",
-        "target": "ESNext"
+        "target": "ESNext",
+        "paths": {
+            "@jasonzhang15/bool-then" : ["../main.ts"]
+        }
     }
 }

@@ -1,7 +1,7 @@
 {
-  "name": "@jasonzhang/func-tool",
+  "name": "@jasonzhang/bool-then",
   "version": "0.0.1",
-  "description": "Jason Zhang's function tool, inspired by Rust",
+  "description": "Jason Zhang's boolean thenable function tool, inspired by Rust, reducing statement of if or else, keeping logic going on",
   "scripts": {
     "check": "tsc --noEmit",
     "bundle-script": "rollup --config rollup.config.ts --configPlugin typescript",
@@ -11,14 +11,19 @@
   },
   "keywords": [
     "function tool",
-    "function programming",
+    "functional programming",
     "optional",
     "chainable",
     "rust",
     "rust-like",
     "jasonzhang",
     "then",
-    "if else"
+    "if else",
+    "operator",
+    "bool",
+    "and then",
+    "fail",
+    "reducer"
   ],
   "author": "JasonZhang",
   "license": "MIT",
