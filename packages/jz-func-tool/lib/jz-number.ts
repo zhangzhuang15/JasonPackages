@@ -1,117 +1,117 @@
-import { JZBoolean } from "./jz-boolean";
-import { optional } from "./jz-option";
+import { JZBoolean } from './jz-boolean';
+import { optional } from './jz-option';
 
 export class JZNumber {
-    private constructor(private readonly value: number) {}
+  private constructor(private readonly value: number) {}
 
-    gt(val: number) {
-        return JZBoolean.of(
-            this.value,
-            this.value > val
-        );
-    }
+  gt(val: number) {
+    return JZBoolean.of(
+      this.value,
+      this.value > val,
+    );
+  }
 
-    ge(val: number) {
-        return JZBoolean.of(
-            this.value,
-            this.value >= val
-        );
-    }
+  ge(val: number) {
+    return JZBoolean.of(
+      this.value,
+      this.value >= val,
+    );
+  }
 
-    lt(val: number) {
-        return JZBoolean.of(
-            this.value,
-            this.value < val
-        );
-    }
-    
-    le(val: number) {
-        return JZBoolean.of(
-            this.value,
-            this.value <= val
-        );
-    }
+  lt(val: number) {
+    return JZBoolean.of(
+      this.value,
+      this.value < val,
+    );
+  }
 
-    eq(val: number) {
-        return JZBoolean.of(
-            this.value,
-            this.value === val
-        );
-    }
+  le(val: number) {
+    return JZBoolean.of(
+      this.value,
+      this.value <= val,
+    );
+  }
 
-    ne(val: number) {
-        return JZBoolean.of(
-            this.value,
-            this.value !== val
-        );  
-    }
+  eq(val: number) {
+    return JZBoolean.of(
+      this.value,
+      this.value === val,
+    );
+  }
 
-    isPositive() {
-        return this.gt(0);
-    }
+  ne(val: number) {
+    return JZBoolean.of(
+      this.value,
+      this.value !== val,
+    );
+  }
 
-    isNegative() {
-        return this.lt(0);
-    }
+  isPositive() {
+    return this.gt(0);
+  }
 
-    isntNegative() {
-        return this.ge(0);
-    }
+  isNegative() {
+    return this.lt(0);
+  }
 
-    isntPositive() {
-        return this.le(0);
-    }
+  isntNegative() {
+    return this.ge(0);
+  }
 
-    isZero() {
-        return this.eq(0);
-    }
+  isntPositive() {
+    return this.le(0);
+  }
 
-    isNaN() {
-        return JZBoolean.of(
-            this.value,
-            Number.isNaN(this.value)
-        );
-    }
+  isZero() {
+    return this.eq(0);
+  }
 
-    isFloat() {
-        return JZBoolean.of(
-            this.value,
-            this.value.toString().includes(".")
-        );
-    }
+  isNaN() {
+    return JZBoolean.of(
+      this.value,
+      Number.isNaN(this.value),
+    );
+  }
 
-    isFinite() {
-        return JZBoolean.of(
-            this.value,
-            Number.isFinite(this.value)
-        );
-    }
+  isFloat() {
+    return JZBoolean.of(
+      this.value,
+      this.value.toString().includes('.'),
+    );
+  }
 
-    between(low: number, high: number) {
-        return JZBoolean.of(
-            this.value,
-            this.value > low && this.value <= high
-        );
-    }
+  isFinite() {
+    return JZBoolean.of(
+      this.value,
+      Number.isFinite(this.value),
+    );
+  }
 
-    take() {
-        return this.value;
-    }
+  between(low: number, high: number) {
+    return JZBoolean.of(
+      this.value,
+      this.value > low && this.value <= high,
+    );
+  }
 
-    map<U>(effect: (val: number) => U) {
-        const result = effect(this.value);
-        return optional(result);
-    }
+  take() {
+    return this.value;
+  }
 
-    static of(val: number) {
-        return new JZNumber(val);
-    }
+  map<U>(effect: (val: number) => U) {
+    const result = effect(this.value);
+    return optional(result);
+  }
+
+  static of(val: number) {
+    return new JZNumber(val);
+  }
 }
 
 /**
  * create jz-number, so you can benefit from it, enjoy
  * the functional programming advantage.
- * 
+ *
  * ## Example
  * ```ts
  * const values = [1, 10, 100]
@@ -122,9 +122,9 @@ export class JZNumber {
  *    console.log(_ + "is not bigger than ", 10)
  * })
  * ```
- * @param val 
- * @returns 
+ * @param val
+ * @returns
  */
 export function ctNumber(val: number) {
-    return JZNumber.of(val);
+  return JZNumber.of(val);
 }
