@@ -5,12 +5,12 @@
   "author": {
     "name": "JasonZhang"
   },
-  "publisher": "JasonZhang",
+  "publisher": "JasonZhang155",
   "repository": {
     "type": "github",
     "url": "https://github.com/zhangzhuang15/JasonPackages"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -27,6 +27,7 @@
     "onCommand:*"
   ],
   "main": "./dist/extension.js",
+  "icon": "./images/dictionary.png",
   "contributes": {
     "commands": [
       {
@@ -53,6 +54,7 @@
     "compile": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
+    "publish": "vsce package && vsce publish",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
