@@ -37,6 +37,8 @@ To start a mono-repo project with `lerna` + `pnpm`:
     > block `link` `add` `bootstrap` command, so
     > you cannot install dependencies with lerna
 
+NOTE: lerna is removed, I prefer pnpm purely, it's more simple and clear.
+
 ## how to add a new package
 1. create a new directory under `packages` directory, assume that directory name is `my-luck`
 2. get into `my-luck`, run `pnpm init`
