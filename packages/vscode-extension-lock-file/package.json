@@ -25,6 +25,7 @@
     "*"
   ],
   "main": "./dist/extension.js",
+  "icon": "./images/lock-file.png",
   "contributes": {
     "configuration": {
       "title": "LockFile",
