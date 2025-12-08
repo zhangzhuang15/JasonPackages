@@ -73,8 +73,6 @@ share this file with your friends, they could install your plugin using that fil
 $ npm run publish
 ```
 
-Token: 3twQA827OOSfjO5bXu2maHJ6XLBTvrbRVYqbaHHsClsdetX9HKFaJQQJ99BLACAAAAAAAAAAAAASAZDO4TgG
-
 If token is expired, visit https://dev.azure.com/2592004894/_usersSettings/tokens to update.
 
 Other help link:

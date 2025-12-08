@@ -39,6 +39,10 @@ Initial release
 2. refactor code, make it more extensive
 3. add settings configuration for future extending
 
+### 1.1.0
+
+support youdao dictionary
+
 ---
 
 ## Get Started
@@ -77,6 +81,13 @@ Great!
 
 If you want to stop translating, you can take a right-click in your editor, choose `Toggle to Translate English` again.
 (如果你像关闭翻译功能，你可以再次右键，选中`Toggle to Translate English`)
+
+As default, it uses iciba to translate word, but you can switch to another tool.(默认情况，这个插件底层使用“金山词典”翻译单词，但是你可以切换到别的查询工具)
+
+1. Open your vscode Settings(on macOS Command+,) (打开 vscode 的`Settings`面板, macOS 使用 `Command+,`的快捷键)
+2. Input "vscode-plugin-dictionary.translator" (输入 `vscode-plugin-dictionary.translator`)
+3. Select another tool, e.g. youdao (从下拉框中选择别的工具，比如 youdao)
+4. Done! Now, we're searching word based on that selected tool.(可以了，现在我们查询单词翻译的时候，底层就是用了你选中的那个工具)
 
 If you meet some problems, you can open your `Output`
 panel which is next to `DEBUG CONSOLE` panel, choose `vscode-plugin-dictionary`, it logs some valuable messages about the problems.

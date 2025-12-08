@@ -10,18 +10,21 @@
     "type": "github",
     "url": "https://github.com/zhangzhuang15/JasonPackages"
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "engines": {
     "vscode": "^1.81.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Education"
   ],
   "keywords": [
     "JasonZhang",
     "Translate Tool",
     "Vscode Locally",
-    "Translate English Word To Chinese"
+    "Translate English Word To Chinese",
+    "youdao",
+    "iciba"
   ],
   "activationEvents": [
     "onCommand:*"
@@ -55,10 +58,12 @@
         "vscodePluginDictionary.translator": {
           "type": "string",
           "enum": [
-            "iciba"
+            "iciba",
+            "youdao"
           ],
           "enumItemLabels": [
-            "金山翻译"
+            "金山翻译",
+            "有道翻译"
           ],
           "default": "iciba"
         }

@@ -10,7 +10,7 @@ import { debounceBlocker } from "@/translation-impl/utils/promise.util";
 import { getCurrentSelectionPosition, getCurrentSelectionText,} from "@/translation-impl/utils/textEditor.util"
 
 let allowTranslateEnglish = false;
-let currenTranslator: 'iciba' = 'iciba';
+let currenTranslator: 'iciba' | 'youdao' = 'iciba';
 
 // 单词拼写可能有错，给出如下提示
 const FAILEDTIPS = `
