@@ -33,6 +33,12 @@ Welcome to put your issues.
 
 Initial release
 
+### 1.0.0
+
+1. [fix bug](https://github.com/zhangzhuang15/JasonPackages/issues/6)
+2. refactor code, make it more extensive
+3. add settings configuration for future extending
+
 ---
 
 ## Get Started

@@ -10,7 +10,7 @@
     "type": "github",
     "url": "https://github.com/zhangzhuang15/JasonPackages"
   },
-  "version": "0.0.3",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.81.0"
   },
@@ -47,6 +47,22 @@
           "command": "vscode-plugin-dictionary.toggleTranslateEnglish"
         }
       ]
+    },
+    "configuration": {
+      "title": "vscode-plugin-dictionary",
+      "type": "object",
+      "properties": {
+        "vscodePluginDictionary.translator": {
+          "type": "string",
+          "enum": [
+            "iciba"
+          ],
+          "enumItemLabels": [
+            "金山翻译"
+          ],
+          "default": "iciba"
+        }
+      }
     }
   },
   "scripts": {

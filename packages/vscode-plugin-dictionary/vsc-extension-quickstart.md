@@ -73,9 +73,10 @@ share this file with your friends, they could install your plugin using that fil
 $ npm run publish
 ```
 
-Token: 6XdpcfnvZmRJckHkHPHi2qWJbYXs6DH7aTiNYPV5KjhSg4NJW4C7JQQJ99BCACAAAAAAAAAAAAAGAZDO15kd
+Token: 3twQA827OOSfjO5bXu2maHJ6XLBTvrbRVYqbaHHsClsdetX9HKFaJQQJ99BLACAAAAAAAAAAAAASAZDO4TgG
 
 If token is expired, visit https://dev.azure.com/2592004894/_usersSettings/tokens to update.
 
 Other help link:
+
 - https://code.visualstudio.com/api/working-with-extensions/publishing-extension
